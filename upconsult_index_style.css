@@ -114,7 +114,7 @@ margin: 20px;
 .fed {
     position: absolute;
     text-align: left;
-    left: 325px;
+    left: 165px;
 }
 
 .feed-card-consultor {
@@ -127,22 +127,23 @@ margin: 20px;
     display:flex;
     justify-content: center;
     align-items:center;
-    margin-left: 210px;
+    margin-left: 50px;
     margin-top: 130px;
 }
+
 
 .card-feed-info-empresa {
     position: absolute;   
     text-align: center;
     top: 630px;
-    left: 360px;   
+    left: 185px;   
 }
 
 .feed-info-empresa {
     position: absolute;
     text-align: left;
     top:630px;
-    left: 410px;
+    left: 240px;
 }
 
 .feed-foto-solicitacao-empresa{
@@ -159,7 +160,7 @@ margin: 20px;
 
 .feed-botoes-consultor {
     position: absolute;
-    left: 390px;
+    left: 235px;
     top:1100px;
 }
 
