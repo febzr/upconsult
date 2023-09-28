@@ -1,8 +1,8 @@
 <?php
-$servername = "45.171.124.80";
+$servername = "localhost";
 $dbname = "upconsult";
 $username = "upconsult";
-$password = "Upcon!2109";
+$password = "cnsdf_01";
 
 // Criando a coenxão
 $conn = new mysqli($servername, $username, $password, $dbname);
