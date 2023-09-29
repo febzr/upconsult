@@ -1,10 +1,10 @@
 <?php
-$servername = "localhost";
-$dbname = "upconsult";
-$username = "upconsult";
+$servername = "44.234.244.93";
+$dbname = "mvpjgteducom_upconsult";
+$username = "mvpjgteducom_upconsult";
 $password = "cnsdf_01";
 
-// Criando a coenxão
+// Criando a coenx達o
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
