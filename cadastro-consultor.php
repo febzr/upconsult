@@ -73,7 +73,7 @@ if (isset($_POST['enviar'])){
             <img src="Resources/Cadastro e Login images/logo-superior-direito.png" alt="">
         </div>
         <div class="seta">
-            <a href="quem-sou-eu-cadastro"><img src="Resources/Cadastro e Login images/conf-icon-seta-voltar.png" alt=""></a>
+            <a href="quem-sou-eu-cadastro.html"><img src="Resources/Cadastro e Login images/conf-icon-seta-voltar.png" alt=""></a>
         </div>
         <div class="escuro-faq">
             <ul>
