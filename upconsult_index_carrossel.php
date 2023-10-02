@@ -26,7 +26,7 @@
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_solicitacao_style.css">
+    <link rel="stylesheet" href="upconsult_index_carrossel_style.css">
 </head>
 
 <body>
@@ -54,19 +54,27 @@
         </nav>
     </header>
 
-    <!-- Área de notificações empresa -->
+    <!-- Área de carrosel do consultor -->
 
         <main class="carousel-container">
             <div class="carousel">
                 <ul class="carousel-list">
-                    <li class="carousel-item">
-                        <h3>Título do Card 1</h3>
-                        <p>Descrição do Card 1</p>
-                        <p>Tipo: Tipo do Card 1</p>
-                    </li>
-                    <!-- Adicione mais cards aqui -->
+                    <li class="titulo" id="titulo">
+                        <p class="titulo-solicitacao">Título da solicitação</p>
+                        </li>
+                    <li class="descricao" id="descricao">
+                        <p class="descricao-solicitacao">Descrição da solicitação</p>
+                        </li>
+                    <li class="tipo" id="tipo">
+                        <p class="tipo-solicitacao">Tipo da solicitação</p>
+                        </li>
+                    
                 </ul>
             </div>
+            <br>
+                <input type="submit" name="aceitar-proposta" id="aceitar-proposta"
+                    value="Aceitar Proposta"><br>
+
             <button class="prev-button">Anterior</button>
             <button class="next-button">Próximo</button>
         </main>
