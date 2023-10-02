@@ -1,6 +1,8 @@
 <?php
 
 include 'php/db.php';
+session_start();
+global $_SESSION;
 
 if (isset($_POST['enviar'])) {
 
@@ -16,11 +18,16 @@ if (isset($_POST['enviar'])) {
         $senha_verif = password_verify($senha, $senha_hashed);
 
         if ($senha_verif == true) {
-            session_start();
             $db = "UPDATE consultor SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
-            $_SESSION['cnpj'] = $cnpj;
+            $_COOKIE['cnpj'] = $cnpj;
             header('Location: upconsult_index.php');
+
+            $db = "SELECT nome FROM consultor WHERE cnpj = '$cnpj'";
+            mysqli_query($conn, $db);
+            $result = mysqli_fetch_array(mysqli_query($conn, $db));
+            $_SESSION['nome'] = $result['nome'];
+
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
             header("Refresh:1; url=login.php");

@@ -1,6 +1,8 @@
 <?php
 
 include 'php/db.php';
+session_start();
+global $_SESSION;
 
 if (isset($_POST['enviar'])) {
 
@@ -16,10 +18,15 @@ if (isset($_POST['enviar'])) {
         $senha_verif = password_verify($senha, $senha_hashed);
 
         if ($senha_verif == true) {
-            session_start();
             $db = "UPDATE empresas SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
             $_SESSION['cnpj'] = $cnpj;
+
+            $db = "SELECT nome FROM empresas WHERE cnpj = '$cnpj'";
+            mysqli_query($conn, $db);
+            $result = mysqli_fetch_array(mysqli_query($conn, $db));
+            $_SESSION['nome'] = $result['nome'];
+            
             header('Location: upconsult_index.php');
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta

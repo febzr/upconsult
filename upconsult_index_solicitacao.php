@@ -1,3 +1,38 @@
+<?php
+
+include 'php/db.php';
+session_start();
+global $_SESSION;
+
+$cnpj = $_SESSION['cnpj'];
+$nome = $_SESSION['nome'];
+
+$db = "SELECT nome FROM empresas WHERE cnpj = '$cnpj'";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+$nome = $result['nome'];
+
+if (isset($_POST['enviar-solicitacao'])) {
+
+    $titulo = $_POST['titulo-solicitacao-empresa'];
+    $descricao = $_POST['descricao-solicitacao-empresa'];
+    $area = $_POST['area-de-consultoria-empresa'];
+    $data_atual = date('d-m-Y');
+
+    if (empty($titulo) || empty($descricao) || empty($area)) {
+        $_POST['trigger'] = "1"; //Erro de campos vazios
+        echo "<script>alert('Preencha todos os campos!');</script>";
+        header("Refresh:1; url=upconsult_index_solicitacao.php");
+        exit();
+    }
+
+    $sql = "INSERT INTO solicitacoes (titulo, descricao, area, datasol, cnpj_sol, nome) VALUES ('$titulo', '$descricao', '$area', '$data_atual', '$cnpj', '$nome')";
+    $_POST['trigger'] = "2"; //Solicitação enviada com sucesso
+    echo "<script>alert('Solicitação enviada com sucesso!');</script>";
+    mysqli_query($conn, $sql);
+    header('Location: upconsult_index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -60,7 +95,7 @@
         <!--Form de solicitação de consultoria-->
         <div class="form-empresa-solicitacao-consultoria">
             <h2>Solicitação de consultoria</h2>
-            <form action="">
+            <form action="" method="post">
                 <label for="titulo-solicitacao-empresa">Título da solicitação</label><br>
                 <input type="text" name="titulo-solicitacao-empresa" id="titulosolicitacaoempresa" placeholder="Escreva aqui" required><br>
                 <label for="descricao-solicitacao-empresa">Descrição de solicitação</label><br>
