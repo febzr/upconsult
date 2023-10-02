@@ -5,6 +5,7 @@ if (isset($_POST['enviar'])) {
 
     $cnpj = $_POST['cnpj'];
     $senha = $_POST['senha'];
+    $data_atual = date('d-m-Y');
 
     $sql = "SELECT senha FROM consultor WHERE cnpj = '$cnpj'";
     $result = mysqli_fetch_array(mysqli_query($conn, $sql));
@@ -14,10 +15,12 @@ if (isset($_POST['enviar'])) {
         if ($senha_decrypted == '1') {
             session_start();
             $_COOKIE['cnpj'] = $cnpj;
+            $sql = "UPDATE consultor SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
+            mysqli_query($conn, $sql);
             header('Location: upconsult_index.php');
         } else {
-            echo "<script>alert('Senha incorreta!');</script>";
-            header("Refresh:3; url=login.php");
+            $_POST['er_login'] = "1"; //Erro de senha incorreta
+            header("Refresh:1; url=login.php");
             exit();
         }
     } 
@@ -31,15 +34,17 @@ if (isset($_POST['enviar'])) {
             if ($senha_decrypted == '1') {
                 session_start();
                 $_COOKIE['cnpj'] = $cnpj;
+                $sql = "UPDATE empresas SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
+                mysqli_query($conn, $sql);
                 header('Location: upconsult_index.php');
             } else {
-                echo "<script>alert('Senha incorreta!');</script>";
-                header("Refresh:3; url=login.php");
+                $_POST['er_login'] = "1"; //Erro de senha incorreta
+                header("Refresh:1; url=login.php");
                 exit();
             }
         } else {
-            echo "<script>alert('Usuário não encontrado!');</script>";
-            header("Refresh:3; url=login.php");
+            $_POST['er_login'] = "2"; //Erro de nao existencia de usuario
+            header("Refresh:1; url=login.php");
             exit();
         }
     }

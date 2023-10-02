@@ -7,11 +7,12 @@ if (isset($_POST['enviar'])){
     $cnpj = $_POST['cnpj'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $data_atual = date('d-m-Y');
 
     $senha_hashed = password_hash($senha, PASSWORD_DEFAULT);
 
     if (empty($nome) || empty($cnpj) || empty($email) || empty($senha)){
-        echo "<script>alert('Preencha todos os campos!');</script>";
+        $_POST['er_cad'] = "1"; //Erro de campos vazios
         header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }
@@ -19,13 +20,13 @@ if (isset($_POST['enviar'])){
     $sql = "SELECT cnpj FROM consultor WHERE cnpj = '$cnpj'";
 
     if (mysqli_num_rows(mysqli_query($conn, $sql)) > 0){
-        echo "<script>alert('Usuário já existe!');</script>";
+        $_POST['er_cad'] = "2"; //Erro de CNPJ já cadastrado
         header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }
 
     else {
-        $sql = "INSERT INTO consultor (nome, cnpj, email, senha) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed')";
+        $sql = "INSERT INTO consultor (nome, cnpj, email, senha, datacad) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed', '$data_atual')";
         mysqli_query($conn, $sql);
         header('Location: confirmacao.html');
     }
