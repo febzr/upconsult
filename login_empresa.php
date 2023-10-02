@@ -30,12 +30,14 @@ if (isset($_POST['enviar'])) {
             header('Location: upconsult_index_empresa.php');
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
-            header("Refresh:1; url=login.php");
+            echo "<script>alert('Senha incorreta!');</script>";
+            header("Refresh:1; url=login_empresa.php");
             exit();
         }
     } else {
         $_POST['er_cad'] = "2"; //Erro de CNPJ não cadastrado
-        header("Refresh:1; url=login.php");
+        echo "<script>alert('CNPJ não cadastrado!');</script>";
+        header("Refresh:1; url=login_empresa.php");
         exit();
     }
 

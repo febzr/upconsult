@@ -13,6 +13,7 @@ if (isset($_POST['enviar'])){
 
     if (empty($nome) || empty($cnpj) || empty($email) || empty($senha)){
         $_POST['er_cad'] = "1"; //Erro de campos vazios
+        echo "<script>alert('Preencha todos os campos!');</script>";
         header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }
@@ -21,6 +22,7 @@ if (isset($_POST['enviar'])){
 
     if (mysqli_num_rows(mysqli_query($conn, $sql)) > 0){
         $_POST['er_cad'] = "2"; //Erro de CNPJ já cadastrado
+        echo "<script>alert('CNPJ já cadastrado!');</script>";
         header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }

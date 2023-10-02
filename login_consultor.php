@@ -30,12 +30,13 @@ if (isset($_POST['enviar'])) {
 
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
-            header("Refresh:1; url=login.php");
+            echo "<script>alert('Senha incorreta!');</script>";
+            header("Refresh:1; url=login_consultor.php");
             exit();
         }
     } else {
         $_POST['er_cad'] = "2"; //Erro de CNPJ não cadastrado
-        header("Refresh:1; url=login.php");
+        header("Refresh:1; url=login_consultor.php");
         exit();
     }
 
