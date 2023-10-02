@@ -26,8 +26,8 @@ if (isset($_POST['enviar'])) {
             mysqli_query($conn, $db);
             $result = mysqli_fetch_array(mysqli_query($conn, $db));
             $_SESSION['nome'] = $result['nome'];
-            
-            header('Location: upconsult_index.php');
+
+            header('Location: upconsult_index_empresa.php');
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
             header("Refresh:1; url=login.php");

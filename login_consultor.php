@@ -21,7 +21,7 @@ if (isset($_POST['enviar'])) {
             $db = "UPDATE consultor SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
             $_COOKIE['cnpj'] = $cnpj;
-            header('Location: upconsult_index.php');
+            header('Location: upconsult_index_consultor.php');
 
             $db = "SELECT nome FROM consultor WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
