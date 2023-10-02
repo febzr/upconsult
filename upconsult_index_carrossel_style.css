@@ -1,0 +1,117 @@
+/** ESTILOS GERAIS **/
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+header {
+    background: linear-gradient(177.57deg, #5248F8 0.93%, #121276 103.02%);
+    width: 135
+px;
+    height: 1170px;
+    
+}
+
+main {
+    width: 1000px;
+    height: 1170px;
+}
+
+
+ul {
+    list-style: none;
+}
+
+/** MENU PRINCIPAL **/
+
+.imagem-logo {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 200px;   
+}
+
+#menu-opcoes {
+    text-align: center;
+}
+
+li img {
+margin: 20px;
+}
+
+.icone-menu-config {
+    margin-top: 380px;
+}
+
+
+/** PLATAFORMA CONSULTOR **/
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos do carrossel */
+.carousel-container {
+    margin-top: 50px;
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.carousel {
+    width: 300px; /* Largura do carrossel */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    margin-top: 50px;
+    margin-left: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px; /* Espaçamento entre os cards */
+    text-align: center;
+}
+
+/* Estilos dos botões */
+.prev-button,
+.next-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #0056b3;
+}
