@@ -29,7 +29,7 @@ if (isset($_POST['enviar-solicitacao'])) {
     $_POST['trigger'] = "2"; //Solicitação enviada com sucesso
     echo "<script>alert('Solicitação enviada com sucesso!');</script>";
     mysqli_query($conn, $sql);
-    header('Location: upconsult_index.php');
+    header('Location: upconsult_index_empresa.php');
 }
 ?>
 

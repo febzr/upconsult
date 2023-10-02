@@ -1,3 +1,51 @@
+<?php
+
+include 'php/db.php';
+session_start();
+global $_SESSION;
+
+function carrossel() {
+    global $conn, $titulo, $descricao, $area;
+    $db = "SELECT * FROM solicitacoes WHERE concluido = '0' ORDER BY RAND() LIMIT 1";
+    $result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+    $titulo = $result['titulo'];
+    $descricao = $result['descricao'];
+    $area = $result['area'];
+
+}
+
+carrossel();
+
+if ($area == 'vendas') {
+    $area = "Vendas";
+}
+if ($area == 'gestao') {
+    $area = "Gestão";
+}
+if ($area == 'marketing') {
+    $area = "Marketing";
+}
+if ($area == 'financas') {
+    $area = "Finanças";
+}
+if ($area == 'rh') {
+    $area = "Recursos Humanos";
+}
+if ($area == 'ti') {
+    $area = "Tecnologia da Informação";
+}
+if ($area == 'sustentabilidade') {
+    $area = "Sustentabilidade";
+}
+
+if (isset($_GET´['next'])) {
+    carrossel();
+    echo 'funcionou';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -60,13 +108,13 @@
             <div class="carousel">
                 <ul class="carousel-list">
                     <li class="titulo" id="titulo">
-                        <p class="titulo-solicitacao">Título da solicitação</p>
+                        <p class="titulo-solicitacao"><?php echo $titulo;?></p>
                         </li>
                     <li class="descricao" id="descricao">
-                        <p class="descricao-solicitacao">Descrição da solicitação</p>
+                        <p class="descricao-solicitacao"><?php echo $descricao;?></p>
                         </li>
                     <li class="tipo" id="tipo">
-                        <p class="tipo-solicitacao">Tipo da solicitação</p>
+                        <p class="tipo-solicitacao"><?php echo $area;?></p>
                         </li>
                     
                 </ul>
@@ -75,8 +123,8 @@
                 <input type="submit" name="aceitar-proposta" id="aceitar-proposta"
                     value="Aceitar Proposta"><br>
 
-            <button class="prev-button">Anterior</button>
-            <button class="next-button">Próximo</button>
+            <button class="prev-button" name="prev">Anterior</button>
+            <button class="next-button" name="next">Próximo</button>
         </main>
     <script src="carrossel.js"></script>
         
