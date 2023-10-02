@@ -68,12 +68,14 @@
                     <p class="info-principais-localizacao-consultor">Localização da empresa</p>
                 </div>
             </div>
-            <div class="info-principais-card-atendimento-consultor">
+            <div 
+            class="info-principais-card-atendimento-consultor">
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
-            <div class="info-principais-criar-feed-consultor">
-                <img src="./Resources/Plataforma/consultor-fazer-match.png" alt="/upconsult_index_match.html">
-            </div>
+            
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_match.html'">
+                <img src="./Resources/Plataforma/Resources/consultor-fazer-match.png" alt="">
+            </button>
         </section>
 
     </main>
