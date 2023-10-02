@@ -1,0 +1,109 @@
+/** ESTILOS GERAIS **/
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+header {
+    background: linear-gradient(177.57deg, #5248F8 0.93%, #121276 103.02%);
+    width: 135px;
+    height: 1170px;
+    
+}
+
+main {
+    width: 1000px;
+    height: 1170px;
+}
+
+ul {
+    list-style: none;
+}
+
+/** MENU PRINCIPAL **/
+
+.imagem-logo {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 200px;   
+}
+
+#menu-opcoes {
+    text-align: center;
+}
+
+li img {
+margin: 20px;
+}
+
+.icone-menu-config {
+    margin-top: 380px;
+}
+
+
+/** PLATAFORMA CONSULTOR **/
+
+.info-principais {
+    display: flex;
+    column-gap: 20px;
+    justify-content: flex-start;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.info-principais-card {
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 60px;
+    width: 400px;  
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#info-principais-foto-consultor{
+    width: 60px;
+}
+
+.info-principais-card, p {
+    margin-left: 8px;
+   
+}
+
+.info-principais-card-atendimento-consultor {
+    border: 2px solid #121276;
+    border-radius: 8px;
+    padding: 40px;
+    background-color: #121276;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-principais-criar-feed-consultor {
+    border: 2px solid #E5C73F;
+    border-radius: 8px;
+    padding: 40px;
+    background-color: #E5C73F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** PLATAFORMA EMPRESA **/
+
+/** ÁREA NOTIFICAÇÃO E AGENDA CONSULTOR **/
+
+/** ÁREA NOTIFICAÇÃO E AGENDA EMPRESA **/
