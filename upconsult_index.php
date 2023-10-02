@@ -73,8 +73,8 @@
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
             
-            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_match.html'">
-                <img src="./Resources/Plataforma/Resources/consultor-fazer-match.png" alt="">
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_solicitacao.html'">
+                <img src="./Resources/Plataforma/zap.png" alt="">
             </button>
         </section>
 
