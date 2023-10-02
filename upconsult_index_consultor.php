@@ -1,3 +1,9 @@
+<?php
+session_start();
+global $_SESSION;
+$nome = $_SESSION['nome'];
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -64,7 +70,7 @@
                         id="info-principais-foto-consultor">
                 </figure>
                 <div>
-                    <p class="info-principais-nome-consultor"><strong>Empresa do consultor</strong></p>
+                    <p class="info-principais-nome-consultor"><strong><?php echo $nome;?></strong></p>
                     <p class="info-principais-localizacao-consultor">Localização da empresa</p>
                 </div>
             </div>
@@ -79,7 +85,6 @@
         </section>
 
     </main>
-
 
     <script src="./upconsult-script.js" type="js"></script>
 </body>

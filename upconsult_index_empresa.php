@@ -1,3 +1,9 @@
+<?php
+session_start();
+global $_SESSION;
+$nome = $_SESSION['nome'];
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -64,7 +70,7 @@
                         id="info-principais-foto-consultor">
                 </figure>
                 <div>
-                    <p class="info-principais-nome-consultor"><strong>Nome da Empresa</strong></p>
+                    <p class="info-principais-nome-consultor"><strong><?php echo $nome;?></strong></p>
                     <p class="info-principais-localizacao-consultor">Localização da empresa</p>
                 </div>
             </div>
