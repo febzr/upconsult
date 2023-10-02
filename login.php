@@ -17,7 +17,7 @@ if (isset($_POST['enviar'])) {
             header('Location: upconsult_index.php');
         } else {
             echo "<script>alert('Senha incorreta!');</script>";
-            header("Refresh:0");
+            header("Refresh:3; url=login.php");
             exit();
         }
     } 
@@ -34,12 +34,12 @@ if (isset($_POST['enviar'])) {
                 header('Location: upconsult_index.php');
             } else {
                 echo "<script>alert('Senha incorreta!');</script>";
-                header("Refresh:0");
+                header("Refresh:3; url=login.php");
                 exit();
             }
         } else {
             echo "<script>alert('Usuário não encontrado!');</script>";
-            header("Refresh:0");
+            header("Refresh:3; url=login.php");
             exit();
         }
     }
@@ -118,7 +118,7 @@ if (isset($_POST['enviar'])) {
                 <input type="submit" name="enviar" id="enviar" value="Entrar">
             </form>
             <div class="cad-login">
-                <a href="quem-sou-eu-cadastro">Cadastrar-se</a>
+                <a href="quem-sou-eu-cadastro.html">Cadastrar-se</a>
             </div><br>
 
             <div class="esqc-passw">

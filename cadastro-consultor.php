@@ -12,7 +12,7 @@ if (isset($_POST['enviar'])){
 
     if (empty($nome) || empty($cnpj) || empty($email) || empty($senha)){
         echo "<script>alert('Preencha todos os campos!');</script>";
-        header("Refresh:0");
+        header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }
 
@@ -20,7 +20,7 @@ if (isset($_POST['enviar'])){
 
     if (mysqli_num_rows(mysqli_query($conn, $sql)) > 0){
         echo "<script>alert('Usuário já existe!');</script>";
-        header("Refresh:0");
+        header("Refresh:1; url=cadastro-consultor.php");
         exit();
     }
 
