@@ -59,59 +59,64 @@ margin: 20px;
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
 /* Estilos do carrossel */
-.carousel-container {
-    margin-top: 50px;
-    margin-left: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+
+
+.titulo{
+    margin-left: 250px;
+    margin-top: 100px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-.carousel {
-    width: 300px; /* Largura do carrossel */
-    overflow: hidden;
-    position: relative;
+.descricao-solicitacao{
+    margin-left: 250px;
+    margin-top: 25px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-.carousel-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    margin-top: 50px;
-    margin-left: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right: 10px; /* Espaçamento entre os cards */
-    text-align: center;
+.tipo-solicitacao{
+    margin-left: 250px;
+    margin-top: 150px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 100px;
 }
 
 /* Estilos dos botões */
-.prev-button,
-.next-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-top: 10px;
+
+button {
+    margin-bottom: 40px;
+    color: black;
 }
 
-.prev-button:hover,
-.next-button:hover {
-    background-color: #0056b3;
+.prev-button,
+.next-button {
+    width: 250px;
+    margin-left: 50px;
+    padding: 18px;
+    border: #E5C73F;
+    background-color: #E5C73F;
+    color: black;
+    margin-bottom: 120px;
+    margin-top: 90px;
+}
+
+#aceitar-proposta {
+    width: 250px;
+    margin-left: 200px;
+    padding: 18px;
+    border: #E5C73F;
+    background-color: #0B9F08;
+    color: white;
+    margin-bottom: 10px;
 }
