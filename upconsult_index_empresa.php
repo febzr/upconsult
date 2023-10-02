@@ -4,6 +4,7 @@ global $_SESSION;
 $nome = $_SESSION['nome'];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
