@@ -3,45 +3,30 @@
 include 'php/db.php';
 session_start();
 global $_SESSION;
+$idprop = $_SESSION['idprop'];
 
-function carrossel() {
-    global $conn, $titulo, $descricao, $area;
-    $db = "SELECT * FROM solicitacoes WHERE concluido = '0' ORDER BY RAND() LIMIT 1";
-    $result = mysqli_fetch_array(mysqli_query($conn, $db));
+$db1 = "SELECT * FROM solicitacoes WHERE uniqueid = '$idprop'";
+$result1 = mysqli_fetch_array(mysqli_query($conn, $db1));
 
-    $titulo = $result['titulo'];
-    $descricao = $result['descricao'];
-    $area = $result['area'];
+if (isset($_POST['enviar-proposta-de-solução'])) {
 
-}
+    $descricaoSolucao = $_POST['descricaoSolucao'];
+    $dataAtendimentoConsultor = $_POST['dataAtendimentoConsultor'];
+    $horaAtendimentoConsultor = $_POST['horaAtendimentoConsultor'];
+    $cnpjcons = $_SESSION['cnpj'];
 
-carrossel();
+    if (empty($descricaoSolucao) || empty($dataAtendimentoConsultor) || empty($horaAtendimentoConsultor)) {
+        $_POST['trigger'] = "1"; //Erro de campos vazios
+        echo "<script>alert('Preencha todos os campos!');</script>";
+        header("Refresh:1; url=upconsult_index_indicacao.php");
+        exit();
+    }
 
-if ($area == 'vendas') {
-    $area = "Vendas";
-}
-if ($area == 'gestao') {
-    $area = "Gestão";
-}
-if ($area == 'marketing') {
-    $area = "Marketing";
-}
-if ($area == 'financas') {
-    $area = "Finanças";
-}
-if ($area == 'rh') {
-    $area = "Recursos Humanos";
-}
-if ($area == 'ti') {
-    $area = "Tecnologia da Informação";
-}
-if ($area == 'sustentabilidade') {
-    $area = "Sustentabilidade";
-}
-
-if (isset($_GET´['next'])) {
-    carrossel();
-    echo 'funcionou';
+    $sql = "UPDATE solicitacoes SET propsol = '$descricaoSolucao', datamarc = '$dataAtendimentoConsultor', horamarc = '$horaAtendimentoConsultor', cnpj_cons = '$cnpjcons' WHERE uniqueid = '$idprop'";
+    mysqli_query($conn, $sql);
+    $_POST['trigger'] = "2"; //Solicitação enviada com sucesso
+    echo "<script>alert('Proposta enviada com sucesso!');</script>";
+    header('Location: upconsult_index_consultor.php');
 }
 
 ?>
@@ -114,16 +99,14 @@ if (isset($_GET´['next'])) {
                                 class="proposta-foto-usuario-empresa">
                     </figure>
                     <div>
-                        <p class="proposta-nome-empresa">Nome da empresa</p>
+                        <p class="proposta-nome-empresa"><?php echo $result1['nome'] ?></p>
                         <p class="proposta-area-consultoria"></p>
                         <p class="proposta-cidade-empresa">Cidade da empresa</p>
                     </div>
                 </div>
                 <div>
-                    <p class="proposta-titulo">Precisamos de ajuda! Vendas despencando!</p>
-                    <p class="proposta-descricao-empresa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco</p>
+                    <p class="proposta-titulo"><?php echo $result1['titulo'] ?></p>
+                    <p class="proposta-descricao-empresa"><?php echo $result1['descricao'] ?></p>
                 </div>
             </div>
             <form action="" method="post" class="form" id="proposta-consultor">
