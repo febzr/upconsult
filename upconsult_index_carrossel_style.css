@@ -68,7 +68,7 @@ body {
 
 .titulo{
     position: absolute;
-    left: 250px;
+    left: 550px;
     top:250px;
     color: #121276;
     font-size: 15px;
@@ -77,7 +77,7 @@ body {
 
 .descricao-solicitacao{
     position: absolute;
-    left: 250px;
+    left: 550px;
     top:300px;
     color: #121276;
     font-size: 15px;
@@ -86,7 +86,7 @@ body {
 
 .tipo-solicitacao{
     position: absolute;
-    left: 250px;
+    left: 550px;
     top:350px;
     color: #121276;
     font-size: 15px;
