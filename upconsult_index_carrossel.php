@@ -36,6 +36,7 @@ function carrossel_dere() {
     global $conn, $titulo, $descricao, $area, $id;
     $db = "SELECT * FROM solicitacoes WHERE uniqueid = '$id'";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
+    echo $id, $result;
 
     $titulo = $result['titulo'];
     $id = $result['uniqueid'];
