@@ -74,7 +74,7 @@ if (isset($_GET´['next'])) {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_carrossel_style.css">
+    <link rel="stylesheet" href="upconsult_index_indicacao_style.css">
 </head>
 
 <body>
@@ -103,39 +103,41 @@ if (isset($_GET´['next'])) {
     </header>
 
     <!-- Área de carrosel do consultor -->
-
-        <main class="carousel-container">
-            <div class="carousel">
-                <ul class="carousel-list">
-                    <li class="titulo" id="titulo">
-                        <p class="titulo-solicitacao"><?php echo $titulo;?></p>
-                        </li>
-                    <li class="descricao" id="descricao">
-                        <p class="descricao-solicitacao"><?php echo $descricao;?></p>
-                        </li>
-                    <li class="tipo" id="tipo">
-                        <p class="tipo-solicitacao"><?php echo $area;?></p>
-                        </li>
-                    
-                </ul>
+    <main class="forms-indicacao-consultor">
+        <!-- Form de proposta de solução -->
+        <div class="form-indicacao-cosultor">
+            <h2>Proposta de solução</h2>
+            <div class="card-solicitacao">
+                <div>
+                    <figure>
+                        <img src="./Resources/Plataforma/geral-foto-perfil-two.png" alt=""
+                                class="proposta-foto-usuario-empresa">
+                    </figure>
+                    <div>
+                        <p class="proposta-nome-empresa">Nome da empresa</p>
+                        <p class="proposta-area-consultoria"></p>
+                        <p class="proposta-cidade-empresa">Cidade da empresa</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="proposta-titulo">Precisamos de ajuda! Vendas despencando!</p>
+                    <p class="proposta-descricao-empresa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco</p>
+                </div>
             </div>
-
-            <form method="POST" action="">
-                <!-- Seus campos de entrada aqui -->
-                <button type="submit">Aceitar Proposta</button>
+            <form action="" method="post" class="form" id="proposta-consultor">
+                <label for="descricaoSolucao">Descrição da solução</label><br>
+                <textarea name="descricaoSolucao" id="descricaoSolucao" cols="30" rows="10" placeholder="Escreva aqui"
+                    required></textarea><br>
+                <label for="dataAtendimentoConsultor">Sugestão de data para atendimento</label><br>
+                <input type="date" id="dataAtendimentoConsultor" name="dataAtendimentoConsultor" required><br>
+                <label for="horaAtendimentoConsultor">Sugestão de hora para atendimento</label><br>
+                <input type="time" id="horaAtendimentoConsultor" name="horaAtendimentoConsultor" required><br>
+                <button type="submit" name="enviar-proposta-de-solução" id="enviar-proposta-de-solução">Enviar proposta de solução</button>
             </form>
-
-            <form method="GET" action="">
-                <!-- Seus campos de entrada aqui -->
-                <button type="submit">Anterior</button>
-            </form>
-
-            <form method="GET" action="">
-                <!-- Seus campos de entrada aqui -->
-                <button type="submit">Próximo</button>
-            </form>
-        </main>
-    <script src="carrossel.js"></script>
+        </div>
+    </main>
         
 </body>
 
