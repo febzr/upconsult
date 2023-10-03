@@ -95,12 +95,6 @@ body {
 /* Estilos dos botões */
 
 button {
-    margin-bottom: 40px;
-    color: black;
-}
-
-#next-button,
-#prev-button {
     width: 250px;
     margin-left: 50px;
     padding: 18px;
@@ -109,14 +103,4 @@ button {
     color: black;
     margin-bottom: 120px;
     margin-top: 90px;
-}
-
-#aceitar-proposta {
-    width: 250px;
-    margin-left: 200px;
-    padding: 18px;
-    border: #E5C73F;
-    background-color: #0B9F08;
-    color: white;
-    margin-bottom: 10px;
 }
