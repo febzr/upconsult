@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 
 include 'php/db.php';
 session_start();
@@ -31,7 +31,7 @@ if (isset($_POST['enviar-solicitacao'])) {
     mysqli_query($conn, $sql);
     header('Location: upconsult_index_empresa.php');
 }
-?>
+?>-->
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -96,12 +96,7 @@ if (isset($_POST['enviar-solicitacao'])) {
         <div class="form-empresa-solicitacao-consultoria">
             <h2>Solicitação de consultoria</h2>
             <form action="" method="post">
-                <label for="titulo-solicitacao-empresa">Título da solicitação</label><br>
-                <input type="text" name="titulo-solicitacao-empresa" id="titulosolicitacaoempresa" placeholder="Escreva aqui" required><br>
-                <label for="descricao-solicitacao-empresa">Descrição de solicitação</label><br>
-                <textarea name="descricao-solicitacao-empresa" id="descricaosolicitacaoempresa" cols="30" rows="10"
-                    placeholder="Escreva aqui" required></textarea><br>
-                <label for="area-de-consultoria-empresa">Área de consultoria</label><br>
+            <label for="area-de-consultoria-empresa">Área de consultoria</label><br>
                 <select name="area-de-consultoria-empresa" id="areadeconsultoriaempresa" required>
                     <option value="vendas">Vendas</option>
                     <option value="gestao">Gestão</option>
@@ -111,11 +106,27 @@ if (isset($_POST['enviar-solicitacao'])) {
                     <option value="ti">Tecnologia da informação</option>
                     <option value="sustentabilidade">Sustentabilidade</option>
                 </select><br>
+
+                <label for="tipo-de-problema-empresa">selecione o tipo de problema</label><br>
+                <select name="tipo-de-problema-empresa" id="tipo-de-problema-empresa" required>
+                    
+                </select><br>
+
+                <label for="descricao-solicitacao-empresa">Descrição de solicitação (opcional)</label><br>
+                <textarea name="descricao-solicitacao-empresa" id="descricaosolicitacaoempresa" cols="30" rows="10"
+                    placeholder="Escreva aqui"></textarea><br>
+                <label for="dataAtendimentoConsultor">Sugestão de data para atendimento</label><br>
+                <input type="date" id="dataAtendimentoConsultor" name="dataAtendimentoConsultor" required><br>
+                <label for="horaAtendimentoConsultor">Sugestão de hora para atendimento</label><br>
+                <input type="time" id="horaAtendimentoConsultor" name="horaAtendimentoConsultor" step="3600" required><br>
                 <input type="submit" name="enviar-solicitacao" id="enviar-solicitacao"
                     value="Enviar solicitação de consultoria"><br>
             </form>
         </div>
     </main>
+
+    <script src="select.js"></script>
+
 </body>
 
 </html>
