@@ -90,16 +90,22 @@ $nome = $_SESSION['nome'];
     <main class="carousel-container">
             <div class="carousel">
                 <ul class="carousel-list">
-                    <li class="titulo" id="titulo">
-                        <p class="titulo-solicitacao"><?php echo $titulo;?></p>
+                    
+                    <li class="tipo" id="tipo">
+                        <p class="tipo-solicitacao"><?php echo $area;?></p>
+                        </li>
+                    <li class="subtipo" id="subtipo">
+                        <p class="subtipo-solicitacao"><?php echo $area;?></p>
                         </li>
                     <li class="descricao" id="descricao">
                         <p class="descricao-solicitacao"><?php echo $descricao;?></p>
                         </li>
-                    <li class="tipo" id="tipo">
-                        <p class="tipo-solicitacao"><?php echo $area;?></p>
+                    <li class="data" id="data">
+                        <p class="data-solicitacao"><?php echo $area;?></p>
                         </li>
-                    
+                    <li class="hora" id="hora">
+                        <p class="hora-solicitacao"><?php echo $area;?></p>
+                        </li>         
                 </ul>
             </div>
 
