@@ -105,7 +105,7 @@ margin: 20px;
 /* Estilos do carrossel */
 
 
-.titulo{
+.tipo-solicitacao{
     position: absolute;
     left: 850px;
     top:250px;
@@ -114,7 +114,7 @@ margin: 20px;
     font-weight: bold;
 }
 
-.descricao-solicitacao{
+.subtipo-solicitacao{
     position: absolute;
     left: 850px;
     top:300px;
@@ -123,10 +123,30 @@ margin: 20px;
     font-weight: bold;
 }
 
-.tipo-solicitacao{
+.data-solicitacao {
     position: absolute;
     left: 850px;
     top:350px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.hora-solicitacao {
+    position: absolute;
+    left: 850px;
+    top:400px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.descricao-solicitacao{
+    position: absolute;
+    left: 850px;
+    top:450px;
     color: #121276;
     font-size: 15px;
     font-weight: bold;
