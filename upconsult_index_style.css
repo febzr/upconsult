@@ -102,8 +102,76 @@ margin: 20px;
     align-items: center;
 }
 
-/** PLATAFORMA EMPRESA **/
+/* Estilos do carrossel */
 
-/** ÁREA NOTIFICAÇÃO E AGENDA CONSULTOR **/
 
-/** ÁREA NOTIFICAÇÃO E AGENDA EMPRESA **/
+.titulo{
+    position: absolute;
+    left: 850px;
+    top:250px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.descricao-solicitacao{
+    position: absolute;
+    left: 850px;
+    top:300px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tipo-solicitacao{
+    position: absolute;
+    left: 850px;
+    top:350px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+/* Estilos dos botões */
+
+#aceitar {
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+    padding: 18px;
+    border: #121276;
+    background-color: #121276;
+    border-radius: 7px;
+    color: white;
+    position: absolute;
+    left: 800px;
+    top:700px;
+    border-radius: 50%; 
+}
+
+#prox {
+    width: 80px;
+    height: 80px;
+    padding: 18px;
+    border: #121276;
+    background-color: #121276;
+    border-radius: 7px;
+    color: black;
+    position: absolute;
+    left: 400px;
+    top:700px;
+    border-radius: 50%; 
+}
+
+#dislike{
+    width: 46px;
+    justify-content: center;
+    align-items: center;
+}
+
+#like{
+    width: 46px;
+    justify-content: center;
+    align-items: center;
+}
