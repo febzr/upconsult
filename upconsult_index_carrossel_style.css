@@ -68,7 +68,7 @@ body {
 
 
 .titulo{
-    margin-left: 250px;
+    margin-left: 200px;
     margin-top: 100px;
     color: #121276;
     font-size: 15px;
@@ -76,7 +76,7 @@ body {
 }
 
 .descricao-solicitacao{
-    margin-left: 250px;
+    margin-left: 200px;
     margin-top: 25px;
     color: #121276;
     font-size: 15px;
@@ -84,8 +84,8 @@ body {
 }
 
 .tipo-solicitacao{
-    margin-left: 250px;
-    margin-top: 150px;
+    margin-left: 200px;
+    margin-top: 25px;
     color: #121276;
     font-size: 15px;
     font-weight: bold;
@@ -94,12 +94,37 @@ body {
 
 /* Estilos dos botões */
 
-button {
+#aceitar {
     width: 250px;
     margin-left: 50px;
     padding: 18px;
     border: #E5C73F;
     background-color: #E5C73F;
+    border-radius: 7px;
+    color: black;
+    margin-bottom: 120px;
+    margin-top: 90px;
+}
+
+#voltar {
+    width: 250px;
+    margin-left: 50px;
+    padding: 18px;
+    border: #E5C73F;
+    background-color: #E5C73F;
+    border-radius: 7px;
+    color: black;
+    margin-bottom: 120px;
+    margin-top: 90px;
+}
+
+#prox {
+    width: 250px;
+    margin-left: 50px;
+    padding: 18px;
+    border: #E5C73F;
+    background-color: #E5C73F;
+    border-radius: 7px;
     color: black;
     margin-bottom: 120px;
     margin-top: 90px;
