@@ -59,6 +59,11 @@ if (isset($_GET['voltar'])) {
     carrossel_dere();
 }
 
+if (isset($_POST['aceitar'])) {
+    $_SESSION['idprop'] = $id;
+    header('Location: upconsult_index_indicacao.php');
+}
+
 ?>
 
 <!DOCTYPE html>
