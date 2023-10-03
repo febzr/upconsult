@@ -86,6 +86,44 @@ $nome = $_SESSION['nome'];
 
     </main>
 
+    <!-- Parte do Match consultor -->
+    <main class="carousel-container">
+            <div class="carousel">
+                <ul class="carousel-list">
+                    <li class="titulo" id="titulo">
+                        <p class="titulo-solicitacao"><?php echo $titulo;?></p>
+                        </li>
+                    <li class="descricao" id="descricao">
+                        <p class="descricao-solicitacao"><?php echo $descricao;?></p>
+                        </li>
+                    <li class="tipo" id="tipo">
+                        <p class="tipo-solicitacao"><?php echo $area;?></p>
+                        </li>
+                    
+                </ul>
+            </div>
+
+            <form method="POST" action="">
+                <!-- Seus campos de entrada aqui -->
+                <button type="submit" name="aceitar" id="aceitar"> 
+                    <figure class="like">
+                        <img src="./Resources/Plataforma/3.png" alt=""
+                            id="like">
+                    </figure> 
+                </button>
+            </form>
+
+            <form method="GET" action="">
+                <!-- Seus campos de entrada aqui -->
+                <button type="submit" name="prox" id="prox" value="1"> 
+                    <figure class="dislike">
+                        <img src="./Resources/Plataforma/2.png" alt=""
+                            id="dislike">
+                    </figure>    
+                </button>
+            </form>
+        </main>
+
     <script src="./upconsult-script.js" type="js"></script>
 </body>
 
