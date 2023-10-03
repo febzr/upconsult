@@ -5,14 +5,26 @@ session_start();
 global $_SESSION;
 
 function carrossel() {
-    global $conn, $titulo, $descricao, $area;
+    global $conn, $titulo, $descricao, $area, $id;
     $db = "SELECT * FROM solicitacoes WHERE concluido = '0' ORDER BY RAND() LIMIT 1";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
     $titulo = $result['titulo'];
+    $id = $result['uniqueid'];
     $descricao = $result['descricao'];
     $area = $result['area'];
 
+}
+
+function carrossel_dere() {
+    global $conn, $titulo, $descricao, $area, $id;
+    $db = "SELECT * FROM solicitacoes WHERE uniqueid = '$id'";
+    $result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+    $titulo = $result['titulo'];
+    $id = $result['uniqueid'];
+    $descricao = $result['descricao'];
+    $area = $result['area'];
 }
 
 carrossel();
@@ -39,9 +51,12 @@ if ($area == 'sustentabilidade') {
     $area = "Sustentabilidade";
 }
 
-if (isset($_GET´['next'])) {
+if (isset($_GET´['prox'])) {
     carrossel();
-    echo 'funcionou';
+}
+
+if (isset($_GET['voltar'])) {
+    carrossel_dere();
 }
 
 ?>
@@ -122,17 +137,17 @@ if (isset($_GET´['next'])) {
 
             <form method="POST" action="">
                 <!-- Seus campos de entrada aqui -->
-                <button type="submit">Aceitar Proposta</button>
+                <button type="submit" name="aceitar" id="aceitar">Aceitar Proposta</button>
             </form>
 
             <form method="GET" action="">
                 <!-- Seus campos de entrada aqui -->
-                <button type="submit">Anterior</button>
+                <button type="submit" name="voltar" id="voltar">Anterior</button>
             </form>
 
             <form method="GET" action="">
                 <!-- Seus campos de entrada aqui -->
-                <button type="submit">Próximo</button>
+                <button type="submit" name="prox" id="prox">Próximo</button>
             </form>
         </main>
     <script src="carrossel.js"></script>
