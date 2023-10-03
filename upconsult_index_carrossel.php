@@ -123,8 +123,14 @@ if (isset($_GET´['next'])) {
                 <input type="submit" name="aceitar-proposta" id="aceitar-proposta"
                     value="Aceitar Proposta"><br>
 
-            <button class="prev-button" name="prev">Anterior</button>
-            <button class="next-button" name="next">Próximo</button>
+            <br>
+                <input type="submit" name="prev-button" id="prev-button"
+                    value="Anterior"><br>
+
+            <br>
+                <input type="submit" name="next-button" id="next-button"
+                    value="Próximo"><br>
+
         </main>
     <script src="carrossel.js"></script>
         
