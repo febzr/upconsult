@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 
 include 'php/db.php';
 session_start();
@@ -31,7 +31,7 @@ if (isset($_POST['enviar-solicitacao'])) {
     mysqli_query($conn, $sql);
     header('Location: upconsult_index_empresa.php');
 }
-?>-->
+?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
