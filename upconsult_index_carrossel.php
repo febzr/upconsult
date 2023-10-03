@@ -4,13 +4,29 @@ include 'php/db.php';
 session_start();
 global $_SESSION;
 
+if (isset($_GET´['prox'])) {
+    carrossel();
+    exit();
+}
+
+if (isset($_GET['voltar'])) {
+    carrossel_dere();
+    exit();
+}
+
+if (isset($_POST['aceitar'])) {
+    header('Location: upconsult_index_indicacao.php');
+    exit();
+}
+
 function carrossel() {
     global $conn, $titulo, $descricao, $area, $id;
-    $db = "SELECT * FROM solicitacoes WHERE concluido = '0' ORDER BY RAND() LIMIT 1";
+    $db = "SELECT * FROM solicitacoes WHERE concluido = '0' AND marcado = '0' AND NOT uniqueid = '$id' ORDER BY RAND() LIMIT 1";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
     $titulo = $result['titulo'];
     $id = $result['uniqueid'];
+    $_SESSION['idprop'] = $id;
     $descricao = $result['descricao'];
     $area = $result['area'];
 
@@ -23,6 +39,7 @@ function carrossel_dere() {
 
     $titulo = $result['titulo'];
     $id = $result['uniqueid'];
+    $_SESSION['idprop'] = $id;
     $descricao = $result['descricao'];
     $area = $result['area'];
 }
@@ -49,19 +66,6 @@ if ($area == 'ti') {
 }
 if ($area == 'sustentabilidade') {
     $area = "Sustentabilidade";
-}
-
-if (isset($_GET´['prox'])) {
-    carrossel();
-}
-
-if (isset($_GET['voltar'])) {
-    carrossel_dere();
-}
-
-if (isset($_POST['aceitar'])) {
-    $_SESSION['idprop'] = $id;
-    header('Location: upconsult_index_indicacao.php');
 }
 
 ?>
