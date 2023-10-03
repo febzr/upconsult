@@ -2,54 +2,6 @@
 
 include 'php/db.php';
 session_start();
-global $_SESSION;
-
-function carrossel() {
-    global $conn, $titulo, $descricao, $area, $id;
-    $id = $_SESSION['idprop'];
-    $db = "SELECT * FROM solicitacoes WHERE concluido = '0' AND marcado = '0' AND NOT uniqueid = '$id' ORDER BY RAND() LIMIT 1";
-    $result = mysqli_fetch_array(mysqli_query($conn, $db));
-
-    $titulo = $result['titulo'];
-    $id = $result['uniqueid'];
-    $_SESSION['idprop'] = $result['uniqueid'];
-    $descricao = $result['descricao'];
-    $area = $result['area'];
-    echo "<h1>de frente$id</h1>";
-
-}
-
-function carrossel_dere() {
-    global $conn, $titulo, $descricao, $area, $id;
-    $id = $_SESSION['oldid'];
-    $db = "SELECT * FROM solicitacoes WHERE uniqueid = '$id'";
-    $result = mysqli_fetch_array(mysqli_query($conn, $db));
-
-    $titulo = $result['titulo'];
-    $id = $result['uniqueid'];
-    $_SESSION['idprop'] = $id;
-    $descricao = $result['descricao'];
-    $area = $result['area'];
-    echo "<h1>de re$id</h1>";
-
-}
-
-if ($_GET['voltar'] = 1) {
-    carrossel_dere();
-}
-
-if ($_GET['prox'] = 1) {
-    carrossel();
-}
-
-if (isset($_POST['aceitar'])) {
-    header('Location: upconsult_index_indicacao.php?idprop='.$_SESSION['idprop']);
-    exit();
-}
-
-else {
-    carrossel();
-}
 
 if ($area == 'vendas') {
     $area = "Vendas";
