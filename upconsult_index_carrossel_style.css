@@ -99,8 +99,8 @@ button {
     color: black;
 }
 
-.prev-button,
-.next-button {
+#next-button,
+#prev-button {
     width: 250px;
     margin-left: 50px;
     padding: 18px;
