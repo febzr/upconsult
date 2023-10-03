@@ -98,6 +98,8 @@ if (isset($_POST['enviar'])){
                 <label for="email">Email <span>prefencialmente corporativo</span></label><br>
                 <input type="email" name="email" id="email" placeholder=" Digite seu email"><br>
                 <label for="senha">Senha</label><br>
+                <label for="cidade-estado">Cidade-Estado <span>Ex: Recife-PE</span></label><br>
+                <input type="cidade-estado" name="cidade-estado" id="cidade-estado" placeholder=" Digite sua cidade e a sigla do seu estado"><br>
                 <input type="password" name="senha" id="senha" placeholder=" Digite sua senha"><br>
                 <label for="confsenha">Confirme a senha</label><br>
                 <input type="password" name="confsenha" id="confsenha" placeholder=" Confirme a senha"><br>
