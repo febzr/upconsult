@@ -4,14 +4,16 @@ include 'php/db.php';
 session_start();
 global $_SESSION;
 
+if (Error_reporting(E_ALL)) {
+    carrossel();
+}
+
 if (isset($_GET´['prox'])) {
     carrossel();
-    exit();
 }
 
 if (isset($_GET['voltar'])) {
     carrossel_dere();
-    exit();
 }
 
 if (isset($_POST['aceitar'])) {
@@ -21,6 +23,7 @@ if (isset($_POST['aceitar'])) {
 
 function carrossel() {
     global $conn, $titulo, $descricao, $area, $id;
+    $_SESSION['oldid'] = $_SESSION['idprop'];
     $db = "SELECT * FROM solicitacoes WHERE concluido = '0' AND marcado = '0' AND NOT uniqueid = '$id' ORDER BY RAND() LIMIT 1";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
@@ -34,18 +37,17 @@ function carrossel() {
 
 function carrossel_dere() {
     global $conn, $titulo, $descricao, $area, $id;
+    $id = $_SESSION['oldid'];
     $db = "SELECT * FROM solicitacoes WHERE uniqueid = '$id'";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
-    echo $id, $result;
 
     $titulo = $result['titulo'];
     $id = $result['uniqueid'];
     $_SESSION['idprop'] = $id;
     $descricao = $result['descricao'];
     $area = $result['area'];
+    
 }
-
-carrossel();
 
 if ($area == 'vendas') {
     $area = "Vendas";
