@@ -4,34 +4,18 @@ include 'php/db.php';
 session_start();
 global $_SESSION;
 
-if (Error_reporting(E_ALL)) {
-    carrossel();
-}
-
-if (isset($_GET´['prox'])) {
-    carrossel();
-}
-
-if (isset($_GET['voltar'])) {
-    carrossel_dere();
-}
-
-if (isset($_POST['aceitar'])) {
-    header('Location: upconsult_index_indicacao.php');
-    exit();
-}
-
 function carrossel() {
     global $conn, $titulo, $descricao, $area, $id;
-    $_SESSION['oldid'] = $_SESSION['idprop'];
+    $id = $_SESSION['idprop'];
     $db = "SELECT * FROM solicitacoes WHERE concluido = '0' AND marcado = '0' AND NOT uniqueid = '$id' ORDER BY RAND() LIMIT 1";
     $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
     $titulo = $result['titulo'];
     $id = $result['uniqueid'];
-    $_SESSION['idprop'] = $id;
+    $_SESSION['idprop'] = $result['uniqueid'];
     $descricao = $result['descricao'];
     $area = $result['area'];
+    echo "<h1>de frente$id</h1>";
 
 }
 
@@ -46,7 +30,25 @@ function carrossel_dere() {
     $_SESSION['idprop'] = $id;
     $descricao = $result['descricao'];
     $area = $result['area'];
-    
+    echo "<h1>de re$id</h1>";
+
+}
+
+if ($_GET['voltar'] = 1) {
+    carrossel_dere();
+}
+
+if ($_GET['prox'] = 1) {
+    carrossel();
+}
+
+if (isset($_POST['aceitar'])) {
+    header('Location: upconsult_index_indicacao.php?idprop='.$_SESSION['idprop']);
+    exit();
+}
+
+else {
+    carrossel();
 }
 
 if ($area == 'vendas') {
@@ -154,12 +156,12 @@ if ($area == 'sustentabilidade') {
 
             <form method="GET" action="">
                 <!-- Seus campos de entrada aqui -->
-                <button type="submit" name="voltar" id="voltar">Anterior</button>
+                <button type="submit" name="voltar" id="voltar" value="1">Anterior</button>
             </form>
 
             <form method="GET" action="">
                 <!-- Seus campos de entrada aqui -->
-                <button type="submit" name="prox" id="prox">Próximo</button>
+                <button type="submit" name="prox" id="prox" value="1">Próximo</button>
             </form>
         </main>
     <script src="carrossel.js"></script>
