@@ -7,30 +7,34 @@ global $_SESSION;
 $cnpj = $_SESSION['cnpj'];
 $nome = $_SESSION['nome'];
 
-$db = "SELECT nome FROM empresas WHERE cnpj = '$cnpj'";
-$result = mysqli_fetch_array(mysqli_query($conn, $db));
-$nome = $result['nome'];
+$db = "SELECT nome, cnpj FROM empresas WHERE cnpj = '$cnpj'";
+
+$query = mysqli_query($conn, $db);
+
+while ($row = mysqli_fetch_array($query)) {
+    $nome = $row['nome'];
+    $cnpj = $row['cnpj'];
+}
 
 if (isset($_POST['enviar-solicitacao'])) {
 
-    $titulo = $_POST['titulo-solicitacao-empresa'];
+    $tipo = $_POST['tipo-de-problema-empresa'];
     $descricao = $_POST['descricao-solicitacao-empresa'];
+    $sugdata = $_POST['dataAtendimentoConsultor'];
+    $sughora = $_POST['horaAtendimentoConsultor'];
     $area = $_POST['area-de-consultoria-empresa'];
-    $data_atual = date('d-m-Y');
 
-    if (empty($titulo) || empty($descricao) || empty($area)) {
-        $_POST['trigger'] = "1"; //Erro de campos vazios
+    if (empty($tipo) || empty($sugdata) || empty($sughora) || empty($area)) {
+        $_POST['er_cad'] = "1"; //Erro de campos vazios
         echo "<script>alert('Preencha todos os campos!');</script>";
-        header("Refresh:1; url=upconsult_index_solicitacao.php");
+        header("Refresh:1; url=upconsult_index_empresa.php");
         exit();
     }
 
-    $sql = "INSERT INTO solicitacoes (titulo, descricao, area, datasol, cnpj_sol, nome) VALUES ('$titulo', '$descricao', '$area', '$data_atual', '$cnpj', '$nome')";
-    $_POST['trigger'] = "2"; //Solicitação enviada com sucesso
-    echo "<script>alert('Solicitação enviada com sucesso!');</script>";
-    mysqli_query($conn, $sql);
-    header('Location: upconsult_index_empresa.php');
+    $db = "INSERT INTO solicitacoes (tipo, descricao, sugdata, sughora, nomesol, cnpjsol, area) VALUES ('$tipo', '$descricao', '$sugdata', '$sughora', '$nome', '$cnpj', '$area')";
+    mysqli_query($conn, $db);
 }
+
 ?>
 
 <!DOCTYPE html>

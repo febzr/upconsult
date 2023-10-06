@@ -7,11 +7,12 @@ if (isset($_POST['enviar'])){
     $cnpj = $_POST['cnpj'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $local = $_POST['cidade-estado'];
     $data_atual = date('d-m-Y');
 
     $senha_hashed = password_hash($senha, PASSWORD_DEFAULT);
 
-    if (empty($nome) || empty($cnpj) || empty($email) || empty($senha)){
+    if (empty($nome) || empty($cnpj) || empty($email) || empty($senha) || empty($local)){
         $_POST['er_cad'] = "1"; //Erro de campos vazios
         echo "<script>alert('Preencha todos os campos!');</script>";
         header("Refresh:1; url=cadastro-consultor.php");
@@ -28,7 +29,7 @@ if (isset($_POST['enviar'])){
     }
 
     else {
-        $sql = "INSERT INTO consultor (nome, cnpj, email, senha, datacad) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed', '$data_atual')";
+        $sql = "INSERT INTO consultor (nome, cnpj, email, senha, cidest, datacad) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed', '$local', '$data_atual')";
         mysqli_query($conn, $sql);
         header('Location: confirmacao.html');
     }

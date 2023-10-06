@@ -1,7 +1,60 @@
 <?php
+include 'php/db.php';
 session_start();
 global $_SESSION;
+$idsol = 1;
 $nome = $_SESSION['nome'];
+$cnpj = $_SESSION['cnpj'];
+$idsol = $_SESSION['idsol'];
+
+if (isset($_POST['aceitar'])) {
+    $_SESSION['idsolicitacao'] = $result['idsolicitacao'];
+    $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
+    mysqli_query($conn, $db);
+    header('Location: upconsult_index_agendamento_consultor.php');
+    exit();
+}
+
+if (isset($_GET['prox'])) {
+    $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
+    mysqli_query($conn, $db);
+    header('Location: upconsult_index_consultor.php');
+    exit();
+}
+
+$db = "SELECT * FROM solicitacoes WHERE uniqueid NOT IN (SELECT idsolicitacao FROM dislike WHERE idconsultor = $cnpj) ORDER BY RAND() LIMIT 1;";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+$tipo = $result['tipo'];
+$descricao = $result['descricao'];
+$data = $result['sugdata'];
+$hora = $result['sughora'];
+$area = $result['area'];
+$idsol = $result['uniqueid'];
+$_SESSION['idsol'] = $idsol;
+
+if ($area == 'vendas') {
+    $area = "Vendas";
+}
+if ($area == 'gestao') {
+    $area = "Gestão";
+}
+if ($area == 'marketing') {
+    $area = "Marketing";
+}
+if ($area == 'financas') {
+    $area = "Finanças";
+}
+if ($area == 'rh') {
+    $area = "Recursos Humanos";
+}
+if ($area == 'ti') {
+    $area = "Tecnologia da Informação";
+}
+if ($area == 'sustentabilidade') {
+    $area = "Sustentabilidade";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -95,16 +148,16 @@ $nome = $_SESSION['nome'];
                         <p class="tipo-solicitacao"><?php echo $area;?></p>
                         </li>
                     <li class="subtipo" id="subtipo">
-                        <p class="subtipo-solicitacao"><?php echo $area;?></p>
+                        <p class="subtipo-solicitacao"><?php echo $tipo;?></p>
                         </li>
                     <li class="descricao" id="descricao">
                         <p class="descricao-solicitacao"><?php echo $descricao;?></p>
                         </li>
                     <li class="data" id="data">
-                        <p class="data-solicitacao"><?php echo $area;?></p>
+                        <p class="data-solicitacao"><?php echo $data;?></p>
                         </li>
                     <li class="hora" id="hora">
-                        <p class="hora-solicitacao"><?php echo $area;?></p>
+                        <p class="hora-solicitacao"><?php echo $hora;?></p>
                         </li>         
                 </ul>
             </div>

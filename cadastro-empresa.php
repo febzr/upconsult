@@ -7,11 +7,12 @@ if (isset($_POST['enviar'])){
     $cnpj = $_POST['cnpj'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $local = $_POST['cidade-estado'];
     $data_atual = date('d-m-Y');
 
     $senha_hashed = password_hash($senha, PASSWORD_DEFAULT);
 
-    if (empty($nome) || empty($cnpj) || empty($email) || empty($senha)){
+    if (empty($nome) || empty($cnpj) || empty($email) || empty($senha) || empty($local)){
         $_POST['er_cad'] = "1"; //Erro de campos vazios
         header("Refresh:1; url=cadastro-empresa.php");
         exit();
@@ -26,7 +27,7 @@ if (isset($_POST['enviar'])){
     }
 
     else {
-        $sql = "INSERT INTO empresas (nome, cnpj, email, senha, datacad) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed', '$data_atual')";
+        $sql = "INSERT INTO empresas (nome, cnpj, email, senha, cidest, datacad) VALUES ('$nome', '$cnpj', '$email', '$senha_hashed', '$local', '$data_atual')";
         mysqli_query($conn, $sql);
         header('Location: confirmacao.html');
     }
@@ -97,9 +98,9 @@ if (isset($_POST['enviar'])){
                 <input type="text" name="cnpj" id="cnpj" placeholder=" Digite seu CNPJ"> <br>
                 <label for="email">Email <span>prefencialmente corporativo</span></label><br>
                 <input type="email" name="email" id="email" placeholder=" Digite seu email"><br>
-                <label for="senha">Senha</label><br>
                 <label for="cidade-estado">Cidade-Estado <span>Ex: Recife-PE</span></label><br>
                 <input type="cidade-estado" name="cidade-estado" id="cidade-estado" placeholder=" Digite sua cidade e a sigla do seu estado"><br>
+                <label for="senha">Senha</label><br>
                 <input type="password" name="senha" id="senha" placeholder=" Digite sua senha"><br>
                 <label for="confsenha">Confirme a senha</label><br>
                 <input type="password" name="confsenha" id="confsenha" placeholder=" Confirme a senha"><br>

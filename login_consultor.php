@@ -115,7 +115,7 @@ if (isset($_POST['enviar'])) {
                 <input type="submit" name="enviar" id="enviar" value="Entrar">
             </form>
             <div class="cad-login">
-                <a href="quem-sou-eu-cadastro">Cadastrar-se</a>
+                <a href="quem-sou-eu-cadastro.html">Cadastrar-se</a>
             </div><br>
 
             <div class="esqc-passw">

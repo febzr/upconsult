@@ -1,30 +1,4 @@
 <?php
-
-include 'php/db.php';
-session_start();
-
-if ($area == 'vendas') {
-    $area = "Vendas";
-}
-if ($area == 'gestao') {
-    $area = "Gestão";
-}
-if ($area == 'marketing') {
-    $area = "Marketing";
-}
-if ($area == 'financas') {
-    $area = "Finanças";
-}
-if ($area == 'rh') {
-    $area = "Recursos Humanos";
-}
-if ($area == 'ti') {
-    $area = "Tecnologia da Informação";
-}
-if ($area == 'sustentabilidade') {
-    $area = "Sustentabilidade";
-}
-
 ?>
 
 <!DOCTYPE html>
