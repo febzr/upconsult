@@ -5,7 +5,8 @@ global $_SESSION;
 $idsol = 1;
 $nome = $_SESSION['nome'];
 $cnpj = $_SESSION['cnpj'];
-$idsol = $_SESSION['idsol'];
+try { $idsol = $_SESSION['idsol']; }
+catch (Exception $e) { $idsol = 1; }
 
 if (isset($_POST['aceitar'])) {
     $_SESSION['idsolicitacao'] = $result['idsolicitacao'];

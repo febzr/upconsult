@@ -21,12 +21,13 @@ if (isset($_POST['enviar'])) {
             $db = "UPDATE consultor SET ultlog = '$data_atual' WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
             $_COOKIE['cnpj'] = $cnpj;
-            header('Location: upconsult_index_consultor.php');
-
             $db = "SELECT nome FROM consultor WHERE cnpj = '$cnpj'";
             mysqli_query($conn, $db);
             $result = mysqli_fetch_array(mysqli_query($conn, $db));
             $_SESSION['nome'] = $result['nome'];
+            $_SESSION['cnpj'] = $cnpj;
+            
+            header('Location: upconsult_index_consultor.php');
 
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
