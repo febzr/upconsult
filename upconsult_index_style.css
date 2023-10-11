@@ -60,6 +60,7 @@ margin: 20px;
     justify-content: flex-start;
     margin-top: 40px;
     margin-bottom: 100px;
+    margin-left: 200px;
 }
 
 .info-principais-card {
@@ -104,49 +105,89 @@ margin: 20px;
 
 /* Estilos do carrossel */
 
-
-.tipo-solicitacao{
+.label-tipo{
     position: absolute;
-    left: 850px;
-    top:250px;
+    left: 550px;
+    top:330px;
     color: #121276;
     font-size: 15px;
     font-weight: bold;
+}
+
+.label-subtipo{
+    position: absolute;
+    left: 550px;
+    top:380px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-descricao{
+    position: absolute;
+    left: 550px;
+    top:530px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-data{
+    position: absolute;
+    left: 550px;
+    top:430px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-hora{
+    position: absolute;
+    left: 550px;
+    top:480px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tipo-solicitacao{
+    position: absolute;
+    left: 550px;
+    top:350px;
+    color: #121276;
+    font-size: 15px;
 }
 
 .subtipo-solicitacao{
     position: absolute;
-    left: 850px;
-    top:300px;
+    left: 550px;
+    top:400px;
     color: #121276;
     font-size: 15px;
-    font-weight: bold;
 }
 
 .data-solicitacao {
     position: absolute;
-    left: 850px;
-    top:350px;
+    left: 550px;
+    top:450px;
     color: #121276;
     font-size: 15px;
-    font-weight: bold;
     margin-bottom: 100px;
 }
 
 .hora-solicitacao {
     position: absolute;
-    left: 850px;
-    top:400px;
+    left: 550px;
+    top:500px;
     color: #121276;
     font-size: 15px;
-    font-weight: bold;
     margin-bottom: 100px;
 }
 
 .descricao-solicitacao{
     position: absolute;
-    left: 850px;
-    top:450px;
+    left: 550px;
+    top:550px;
     color: #121276;
     font-size: 15px;
     font-weight: bold;
