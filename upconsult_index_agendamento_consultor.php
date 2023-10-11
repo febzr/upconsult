@@ -29,7 +29,7 @@
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_carrossel_style.css">
+    <link rel="stylesheet" href="upconsult_index_agendamento_consultor_style.css">
 </head>
 
 <body>
