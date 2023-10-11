@@ -146,18 +146,23 @@ if ($area == 'sustentabilidade') {
                 <ul class="carousel-list">
                     
                     <li class="tipo" id="tipo">
+                        <p class="label-tipo">Área da solicitação:</p>
                         <p class="tipo-solicitacao"><?php echo $area;?></p>
                         </li>
                     <li class="subtipo" id="subtipo">
+                        <p class="label-subtipo">Especificação da solicitação:</p>
                         <p class="subtipo-solicitacao"><?php echo $tipo;?></p>
                         </li>
                     <li class="descricao" id="descricao">
+                        <p class="label-descricao">Descrição:</p>
                         <p class="descricao-solicitacao"><?php echo $descricao;?></p>
                         </li>
                     <li class="data" id="data">
+                        <p class="label-data">Sugestão de data para atendimento:</p>
                         <p class="data-solicitacao"><?php echo $data;?></p>
                         </li>
                     <li class="hora" id="hora">
+                        <p class="label-hora">Sugestão de hora para atendimento:</p>
                         <p class="hora-solicitacao"><?php echo $hora;?></p>
                         </li>         
                 </ul>
