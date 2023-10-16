@@ -92,29 +92,17 @@ $nome = $_SESSION['nome'];
         <div class="carousel">
             <ul class="carousel-list">
                     
-                <li class="nomeDaEmpresa" id="nomeDaEmpresa">
-                    <p class="label-nomeDaEmpresa">Empresa:</p>
-                    <p class="nome-solicitacao"><?php echo $area;?></p>
+                <li class="nomeDoConsultor" id="nomeDoConsultor">
+                    <p class="label-nomeDoConsultor">Consultor:</p>
+                    <p class="nomeDoConsultor-solicitacao"><?php echo $area;?></p>
                     </li>
-                <li class="tipo" id="tipo">
-                    <p class="label-tipo">Área da solicitação:</p>
-                    <p class="tipo-solicitacao"><?php echo $area;?></p>
+                <li class="localidadeConsultor" id="localidadeConsultor">
+                    <p class="label-localidadeConsultor">Localidade:</p>
+                    <p class="localidadeConsultor-solicitacao"><?php echo $area;?></p>
                     </li>
-                <li class="subtipo" id="subtipo">
-                    <p class="label-subtipo">Especificação da solicitação:</p>
-                    <p class="subtipo-solicitacao"><?php echo $tipo;?></p>
-                    </li>
-                <li class="descricao" id="descricao">
-                    <p class="label-descricao">Descrição:</p>
-                    <p class="descricao-solicitacao"><?php echo $descricao;?></p>
-                    </li>
-                <li class="data" id="data">
-                    <p class="label-data">Sugestão de data para atendimento:</p>
-                    <p class="data-solicitacao"><?php echo $data;?></p>
-                    </li>
-                <li class="hora" id="hora">
-                    <p class="label-hora">Sugestão de hora para atendimento:</p>
-                    <p class="hora-solicitacao"><?php echo $hora;?></p>
+                <li class="especialidadeConsultor" id="especialidadeConsultor">
+                    <p class="label-especialidadeConsultor">Especialidade do Consultor:</p>
+                    <p class="especialidadeConsultor-solicitacao"><?php echo $tipo;?></p>
                     </li>         
             </ul>
         </div>
