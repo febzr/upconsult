@@ -6,7 +6,7 @@ $idsol = 1;
 $nome = $_SESSION['nome'];
 $cnpj = $_SESSION['cnpj'];
 try { $idsol = $_SESSION['idsol']; }
-catch (Exception $e) { $idsol = 1; }
+catch (Exception $e) { $_SESSION['idsol'] = 1; }
 
 if (isset($_POST['aceitar'])) {
     $_SESSION['idsolicitacao'] = $result['idsolicitacao'];
