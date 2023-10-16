@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crie o conteúdo do evento
         eventoDiv.innerHTML = `
-            <h2>${nome}</h2>
+            <h2>${nome}</h2>2
             <p>Data: ${data}</p>
             <p>Hora: ${hora}</p>
         `;
