@@ -87,6 +87,58 @@ $nome = $_SESSION['nome'];
 
     </main>
 
+     <!-- Parte do Match consultor -->
+    <main class="carousel-container">
+        <div class="carousel">
+            <ul class="carousel-list">
+                    
+                <li class="nomeDaEmpresa" id="nomeDaEmpresa">
+                    <p class="label-nomeDaEmpresa">Empresa:</p>
+                    <p class="nome-solicitacao"><?php echo $area;?></p>
+                    </li>
+                <li class="tipo" id="tipo">
+                    <p class="label-tipo">Área da solicitação:</p>
+                    <p class="tipo-solicitacao"><?php echo $area;?></p>
+                    </li>
+                <li class="subtipo" id="subtipo">
+                    <p class="label-subtipo">Especificação da solicitação:</p>
+                    <p class="subtipo-solicitacao"><?php echo $tipo;?></p>
+                    </li>
+                <li class="descricao" id="descricao">
+                    <p class="label-descricao">Descrição:</p>
+                    <p class="descricao-solicitacao"><?php echo $descricao;?></p>
+                    </li>
+                <li class="data" id="data">
+                    <p class="label-data">Sugestão de data para atendimento:</p>
+                    <p class="data-solicitacao"><?php echo $data;?></p>
+                    </li>
+                <li class="hora" id="hora">
+                    <p class="label-hora">Sugestão de hora para atendimento:</p>
+                    <p class="hora-solicitacao"><?php echo $hora;?></p>
+                    </li>         
+            </ul>
+        </div>
+
+        <form method="POST" action="">
+            <!-- Seus campos de entrada aqui -->
+            <button type="submit" name="aceitar" id="aceitar"> 
+                <figure class="like">
+                    <img src="./Resources/Plataforma/3.png" alt=""
+                        id="like">
+                </figure> 
+            </button>
+        </form>
+
+        <form method="GET" action="">
+            <!-- Seus campos de entrada aqui -->
+            <button type="submit" name="prox" id="prox" value="1"> 
+                <figure class="dislike">
+                    <img src="./Resources/Plataforma/2.png" alt=""
+                        id="dislike">
+                </figure>    
+            </button>
+        </form>
+    </main>
 
     <script src="./upconsult-script.js" type="js"></script>
 </body>
