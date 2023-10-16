@@ -33,6 +33,8 @@ if (isset($_POST['enviar-solicitacao'])) {
 
     $db = "INSERT INTO solicitacoes (tipo, descricao, sugdata, sughora, nomesol, cnpjsol, area) VALUES ('$tipo', '$descricao', '$sugdata', '$sughora', '$nome', '$cnpj', '$area')";
     mysqli_query($conn, $db);
+    header("Location: upconsult_index_empresa.php");
+    exit();
 }
 
 ?>

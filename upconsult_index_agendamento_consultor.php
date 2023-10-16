@@ -9,6 +9,13 @@ $cnpj = $_SESSION['cnpj'];
 
 $db = "INSERT INTO sugconsultor (idsolicitacao, nomeconsultor, cnpjconsultor) VALUES ('$idsol', '$nome', '$cnpj');";
 mysqli_query($conn, $db);
+
+$db = "SELECT * FROM solicitacoes WHERE uniqueid = $idsol;";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+$nomesol = $result['nomesol'];
+$data = $result['sugdata'];
+$hora = $result['sughora'];
 ?>
 
 <!DOCTYPE html>

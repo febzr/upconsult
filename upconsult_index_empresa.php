@@ -5,46 +5,60 @@ global $_SESSION;
 $nome = $_SESSION['nome'];
 $cnpj = $_SESSION['cnpj'];
 
-$db = "SELECT * FROM sugconsultor WHERE idsolicitacao = (SELECT uniqueid FROM solicitacoes WHERE cnpjsol = $cnpj) ORDER BY RAND() LIMIT 1;";
-$result = mysqli_fetch_array(mysqli_query($conn, $db));
+try {
+    $db = "SELECT * FROM sugconsultor WHERE idsolicitacao = (SELECT uniqueid FROM solicitacoes WHERE cnpjsol = $cnpj) ORDER BY RAND() LIMIT 1;";
+    $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
-$consultor = $result['nomeconsultor'];
-$cnpjcons = $result['cnpjconsultor'];
-$idsol = $result['idsolicitacao'];
-$uniqueid = $result['uniqueid'];
+    $consultor = $result['nomeconsultor'];
+    $cnpjcons = $result['cnpjconsultor'];
+    $idsol = $result['idsolicitacao'];
+    $uniqueid = $result['uniqueid'];
 
-$db = "SELECT * FROM consultor WHERE cnpj = $cnpjcons;";
-$result = mysqli_fetch_array(mysqli_query($conn, $db));
+    $db = "SELECT * FROM consultor WHERE cnpj = $cnpjcons;";
+    $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
-$local = $result['cidest'];
+    $local = $result['cidest'];
 
-$db = "SELECT * FROM solicitacoes WHERE uniqueid = $idsol;";
-$result = mysqli_fetch_array(mysqli_query($conn, $db));
+    $db = "SELECT * FROM solicitacoes WHERE uniqueid = $idsol;";
+    $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
-$data = $result['sugdata'];
-$hora = $result['sughora'];
-$area = $result['area'];
+    $data = $result['sugdata'];
+    $hora = $result['sughora'];
+    $area = $result['area'];
 
-if ($area == 'vendas') {
-    $area = "Vendas";
+    if ($area == 'vendas') {
+        $area = "Vendas";
+    }
+    if ($area == 'gestao') {
+        $area = "Gestão";
+    }
+    if ($area == 'marketing') {
+        $area = "Marketing";
+    }
+    if ($area == 'financas') {
+        $area = "Finanças";
+    }
+    if ($area == 'rh') {
+        $area = "Recursos Humanos";
+    }
+    if ($area == 'ti') {
+        $area = "Tecnologia da Informação";
+    }
+    if ($area == 'sustentabilidade') {
+        $area = "Sustentabilidade";
+    }
 }
-if ($area == 'gestao') {
-    $area = "Gestão";
-}
-if ($area == 'marketing') {
-    $area = "Marketing";
-}
-if ($area == 'financas') {
-    $area = "Finanças";
-}
-if ($area == 'rh') {
-    $area = "Recursos Humanos";
-}
-if ($area == 'ti') {
-    $area = "Tecnologia da Informação";
-}
-if ($area == 'sustentabilidade') {
-    $area = "Sustentabilidade";
+
+catch (Exception $e) {
+    $consultor = "Não há propostas disponíveis no momento";
+    $local = "Não há propostas disponíveis no momento";
+    $cnpjcons = "Não há propostas disponíveis no momento";
+    $data = "Não há propostas disponíveis no momento";
+    $hora = "Não há propostas disponíveis no momento";
+    $area = "Não há propostas disponíveis no momento";
+    $idsol = "Não há propostas disponíveis no momento";
+    $uniqueid = 0;
+
 }
 
 // if isset($_POST['aceitar']) {}
@@ -57,7 +71,6 @@ if (isset($_GET['prox'])) {
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="PT-BR">
