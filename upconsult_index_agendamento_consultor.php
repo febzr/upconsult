@@ -69,16 +69,24 @@ mysqli_query($conn, $db);
     <!-- Agendamento -->
     <div class="agenda">
         <h1>Minha Agenda</h1>
-        <form id="evento-form" method="POST">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" required>
-            <label for="data">Data:</label>
-            <input type="date" id="data" required>
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" required>
-            <button type="submit">Adicionar Evento</button>
-        </form>
+        <ul class="agendamentos">
+                    
+            <li class="nomeDaEmpresa" id="nomeDaEmpresa">
+                <p class="label-nomeDaEmpresa">Empresa:</p>
+                <p class="nome-solicitacao"><?php echo $nomesol;?></p>
+                    </li>
+            <li class="data" id="data">
+                <p class="label-data">Data do atendimento:</p>
+                <p class="data-solicitacao"><?php echo $data;?></p>
+                    </li>
+            <li class="hora" id="hora">
+                <p class="label-hora">Hora do atendimento:</p>
+                <p class="hora-solicitacao"><?php echo $hora;?></p>
+                    </li>                 
+        </ul>
+
         <div id="eventos-lista"></div>
+
     </div>
     <script src="agendamento.js"></script>
 
