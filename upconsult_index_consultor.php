@@ -145,6 +145,10 @@ if ($area == 'sustentabilidade') {
             <div class="carousel">
                 <ul class="carousel-list">
                     
+                    <li class="nomeDaEmpresa" id="nomeDaEmpresa">
+                        <p class="label-nomeDaEmpresa">Empresa:</p>
+                        <p class="nome-solicitacao"><?php echo $area;?></p>
+                        </li>
                     <li class="tipo" id="tipo">
                         <p class="label-tipo">Área da solicitação:</p>
                         <p class="tipo-solicitacao"><?php echo $area;?></p>
