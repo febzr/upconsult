@@ -1,7 +1,61 @@
 <?php
+include 'php/db.php';
 session_start();
 global $_SESSION;
 $nome = $_SESSION['nome'];
+$cnpj = $_SESSION['cnpj'];
+
+$db = "SELECT * FROM sugconsultor WHERE idsolicitacao = (SELECT uniqueid FROM solicitacoes WHERE cnpjsol = $cnpj) ORDER BY RAND() LIMIT 1;";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+$consultor = $result['nomeconsultor'];
+$cnpjcons = $result['cnpjconsultor'];
+$idsol = $result['idsolicitacao'];
+$uniqueid = $result['uniqueid'];
+
+$db = "SELECT * FROM consultor WHERE cnpj = $cnpjcons;";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+$local = $result['cidest'];
+
+$db = "SELECT * FROM solicitacoes WHERE uniqueid = $idsol;";
+$result = mysqli_fetch_array(mysqli_query($conn, $db));
+
+$data = $result['sugdata'];
+$hora = $result['sughora'];
+$area = $result['area'];
+
+if ($area == 'vendas') {
+    $area = "Vendas";
+}
+if ($area == 'gestao') {
+    $area = "Gestão";
+}
+if ($area == 'marketing') {
+    $area = "Marketing";
+}
+if ($area == 'financas') {
+    $area = "Finanças";
+}
+if ($area == 'rh') {
+    $area = "Recursos Humanos";
+}
+if ($area == 'ti') {
+    $area = "Tecnologia da Informação";
+}
+if ($area == 'sustentabilidade') {
+    $area = "Sustentabilidade";
+}
+
+// if isset($_POST['aceitar']) {}
+
+if (isset($_GET['prox'])) {
+    $db = "DELETE FROM sugconsultor WHERE uniqueid = $uniqueid;";
+    mysqli_query($conn, $db);
+    header('Location: upconsult_index_empresa.php');
+    exit();
+}
+
 ?>
 
 
@@ -94,15 +148,15 @@ $nome = $_SESSION['nome'];
                     
                 <li class="nomeDoConsultor" id="nomeDoConsultor">
                     <p class="label-nomeDoConsultor">Consultor:</p>
-                    <p class="nomeDoConsultor-solicitacao"><?php echo $area;?></p>
+                    <p class="nomeDoConsultor-solicitacao"><?php echo $consultor;?></p>
                     </li>
                 <li class="localidadeConsultor" id="localidadeConsultor">
                     <p class="label-localidadeConsultor">Localidade:</p>
-                    <p class="localidadeConsultor-solicitacao"><?php echo $area;?></p>
+                    <p class="localidadeConsultor-solicitacao"><?php echo $local;?></p>
                     </li>
                 <li class="especialidadeConsultor" id="especialidadeConsultor">
                     <p class="label-especialidadeConsultor">Especialidade do Consultor:</p>
-                    <p class="especialidadeConsultor-solicitacao"><?php echo $tipo;?></p>
+                    <p class="especialidadeConsultor-solicitacao"><?php echo $area;?></p>
                     </li>         
             </ul>
         </div>

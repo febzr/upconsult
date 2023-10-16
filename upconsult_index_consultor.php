@@ -32,6 +32,7 @@ $data = $result['sugdata'];
 $hora = $result['sughora'];
 $area = $result['area'];
 $idsol = $result['uniqueid'];
+$nomesol = $result['nomesol'];
 $_SESSION['idsol'] = $idsol;
 
 if ($area == 'vendas') {
@@ -147,7 +148,7 @@ if ($area == 'sustentabilidade') {
                     
                     <li class="nomeDaEmpresa" id="nomeDaEmpresa">
                         <p class="label-nomeDaEmpresa">Empresa:</p>
-                        <p class="nome-solicitacao"><?php echo $area;?></p>
+                        <p class="nome-solicitacao"><?php echo $nomesol;?></p>
                         </li>
                     <li class="tipo" id="tipo">
                         <p class="label-tipo">Área da solicitação:</p>

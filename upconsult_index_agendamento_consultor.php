@@ -1,4 +1,14 @@
 <?php
+include 'php/db.php';
+session_start();
+global $_SESSION;
+
+$nome = $_SESSION['nome'];
+$idsol = $_SESSION['idsol'];
+$cnpj = $_SESSION['cnpj'];
+
+$db = "INSERT INTO sugconsultor (idsolicitacao, nomeconsultor, cnpjconsultor) VALUES ('$idsol', '$nome', '$cnpj');";
+mysqli_query($conn, $db);
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +43,6 @@
 </head>
 
 <body>
-
     <!-- Menu principal -->
     <header class="menu-principal">
         <figure class="imagem-logo">
@@ -58,6 +67,20 @@
     </header>
 
     <!-- Agendamento -->
+    <div class="agenda">
+        <h1>Minha Agenda</h1>
+        <form id="evento-form" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" required>
+            <button type="submit">Adicionar Evento</button>
+        </form>
+        <div id="eventos-lista"></div>
+    </div>
+    <script src="agendamento.js"></script>
 
         
 </body>
