@@ -87,7 +87,7 @@ $nome = $_SESSION['nome'];
 
     </main>
 
-     <!-- Parte do Match consultor -->
+    <!-- Parte do Match consultor -->
     <main class="carousel-container">
         <div class="carousel">
             <ul class="carousel-list">
