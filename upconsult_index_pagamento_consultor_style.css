@@ -1,0 +1,267 @@
+/** ESTILOS GERAIS **/
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+header {
+    background: linear-gradient(177.57deg, #5248F8 0.93%, #121276 103.02%);
+    width: 135px;
+    height: 1170px;
+    
+}
+
+main {
+    width: 1000px;
+    height: 1170px;
+}
+
+ul {
+    list-style: none;
+}
+
+/** MENU PRINCIPAL **/
+
+.imagem-logo {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 200px;   
+}
+
+#menu-opcoes {
+    text-align: center;
+}
+
+li img {
+margin: 20px;
+}
+
+.icone-menu-config {
+    margin-top: 380px;
+}
+
+
+/** PLATAFORMA CONSULTOR **/
+
+.info-principais {
+    display: flex;
+    column-gap: 20px;
+    justify-content: flex-start;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+}
+
+.info-principais-card {
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 60px;
+    width: 400px;  
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#info-principais-foto-consultor{
+    width: 60px;
+}
+
+.info-principais-card, p {
+    margin-left: 8px;
+   
+}
+
+.info-principais-card-atendimento-consultor {
+    border: 2px solid #121276;
+    border-radius: 8px;
+    padding: 40px;
+    background-color: #121276;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-principais-criar-feed-consultor {
+    border: 2px solid #E5C73F;
+    border-radius: 8px;
+    padding: 40px;
+    background-color: #E5C73F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos do carrossel */
+
+.carousel-list {
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 60px;
+    height: 350px;
+    width: 500px;  
+    background-color: #D9D9D9;
+    position: absolute;
+    left: 435px;
+    top:300px;
+}
+
+.label-nomeDaEmpresa{
+    position: absolute;
+    left: 100px;
+    top:30px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-tipo{
+    position: absolute;
+    left: 100px;
+    top:80px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-subtipo{
+    position: absolute;
+    left: 100px;
+    top:130px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-descricao{
+    position: absolute;
+    left: 100px;
+    top:280px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-data{
+    position: absolute;
+    left: 100px;
+    top:180px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label-hora{
+    position: absolute;
+    left: 100px;
+    top:230px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tipo-solicitacao{
+    position: absolute;
+    left: 100px;
+    top:50px;
+    color: #121276;
+    font-size: 15px;
+}
+
+.nome-solicitacao{
+    position: absolute;
+    left: 100px;
+    top:100px;
+    color: #121276;
+    font-size: 15px;
+}
+
+.subtipo-solicitacao{
+    position: absolute;
+    left: 100px;
+    top:150px;
+    color: #121276;
+    font-size: 15px;
+}
+
+.data-solicitacao {
+    position: absolute;
+    left: 100px;
+    top:200px;
+    color: #121276;
+    font-size: 15px;
+    margin-bottom: 100px;
+}
+
+.hora-solicitacao {
+    position: absolute;
+    left: 100px;
+    top:250px;
+    color: #121276;
+    font-size: 15px;
+    margin-bottom: 100px;
+}
+
+.descricao-solicitacao{
+    position: absolute;
+    left: 100px;
+    top:300px;
+    color: #121276;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+/* Estilos dos botões */
+
+#aceitar {
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+    padding: 18px;
+    border: #121276;
+    background-color: #121276;
+    border-radius: 7px;
+    color: white;
+    position: absolute;
+    left: 700px;
+    top:700px;
+    border-radius: 50%; 
+}
+
+#prox {
+    width: 80px;
+    height: 80px;
+    padding: 18px;
+    border: #121276;
+    background-color: #121276;
+    border-radius: 7px;
+    color: black;
+    position: absolute;
+    left: 500px;
+    top:700px;
+    border-radius: 50%; 
+}
+
+#dislike{
+    width: 46px;
+    justify-content: center;
+    align-items: center;
+}
+
+#like{
+    width: 46px;
+    justify-content: center;
+    align-items: center;
+}
