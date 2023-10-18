@@ -33,32 +33,69 @@
 
 <body>
 
-    <header>
-        <div class="sup-confemp">
-            <img src="Resources/Cadastro e Login images/logo-superior-direito.png" alt="">
-        </div>
-        <div class="seta-confemp">
-            <a href="upconsult_index_empresa.php"><img src="Resources/Cadastro e Login images/conf-icon-seta-voltar.png" alt=""></a>
-        </div>
-        <div class="escuro-confemp">
+    <!-- Menu principal -->
+    <header class="menu-principal">
+        <figure class="imagem-logo">
+            <img src="./Resources/Plataforma/geral-logo-amarela.png" alt="">
+        </figure>
+        <nav id="menu-opcoes">
             <ul>
-                <li><a href=""><img src="Resources/Cadastro e Login images/icon-escuro.png" alt=""></a>
-                </li>
-                <li><a href=""><img src="Resources/Cadastro e Login images/icon-faq.png" alt=""></a>
-                </li>
+                <li class="icone-menu mensagens"><a href="">
+                        <img src="./Resources/Plataforma/geral-menu-mensagens.png" alt="">
+                    </a></li>
+                <li class="icone-menu agenda"><a href="">
+                        <img src="./Resources/Plataforma/geral-menu-agenda.png" alt="">
+                    </a></li>
+                <li class="icone-menu notificacoes"><a href="">
+                        <img src="./Resources/Plataforma/geral-menu-notificacoes.png" alt="">
+                    </a></li>
+                <li class="icone-menu-config"><a href="">
+                        <img src="./Resources/Plataforma/geral-menu-configs.png" alt="">
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Parte principal do consultor -->
+    <main class="principal-consultor">
+        <section class="info-principais">
+            <div class="info-principais-card">
+                <figure class="info-principais-foto-perfil">
+                    <img src="./Resources/Plataforma/new.png" alt=""
+                        id="info-principais-foto-consultor">
+                </figure>
+                <div>
+                    <p class="info-principais-nome-consultor"><strong><?php echo $nome;?></strong></p>
+                    <p class="info-principais-localizacao-consultor">Localização da empresa</p>
+                </div>
+            </div>
+            <div 
+            class="info-principais-card-atendimento-consultor">
+                <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
+            </div>
+            
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_solicitacao.php'">
+                <img src="./Resources/Plataforma/empresa-realizar-solicitacao.png" alt="">
+            </button>
+        </section>
+
+    </main>
+    
+   <!-- Parte do Match Enpresa -->
+    <main class="carousel-container">
+        <div class="carousel">
+            <ul class="carousel-list">
+                
+                <li class="naoPossuiMatchs" id="naoPossuiMatchs">
+                    <p class="label-naoPossuiMatchs">Você não possui mais matchs disponíveis</p>
+                    <p class="naoPossuiMatchs-solicitacao"><?php echo $nomesol;?></p>
+                    </li>
+                    
             </ul>
         </div>
-    </header>
-    <main>
-        <h2>Você não possui mais<br>matches disponíveis!</h2><br><br><br>
-        <img src="Resources/Plataforma/cara_triste_amarelo.png" alt="">
-        <br><br><br><br>
-        <a href="upconsult_index_empresa.php"><button>VOLTAR</button></a>
     </main>
-    <footer>
-        <img src="Resources/Cadastro e Login images/logo-footer.png" alt="">
-    </footer>
-    <img src="Resources/Cadastro e Login images/detalhe-inferior-esquerdo.png" alt="">
+
 </body>
 
 </html>
