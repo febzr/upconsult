@@ -50,14 +50,8 @@ try {
 }
 
 catch (Exception $e) {
-    $consultor = "Não há propostas disponíveis no momento";
-    $local = "Não há propostas disponíveis no momento";
-    $cnpjcons = "Não há propostas disponíveis no momento";
-    $data = "Não há propostas disponíveis no momento";
-    $hora = "Não há propostas disponíveis no momento";
-    $area = "Não há propostas disponíveis no momento";
-    $idsol = "Não há propostas disponíveis no momento";
-    $uniqueid = 0;
+    header('Location: tela_erro_empresa.php');
+    exit();
 
 }
 

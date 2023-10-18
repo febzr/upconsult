@@ -1,3 +1,10 @@
+<?php
+include 'php/db.php';
+session_start();
+global $_SESSION;
+$nome = $_SESSION['nome'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -89,7 +96,7 @@
             
             <li class="naoPossuiMatchs" id="naoPossuiMatchs">
                 <p class="label-naoPossuiMatchs">Você não possui mais matchs disponíveis</p>
-                <p class="naoPossuiMatchs-solicitacao"><?php echo $nomesol;?></p>
+                <p class="naoPossuiMatchs-solicitacao"></p>
                 </li>
                  
         </ul>

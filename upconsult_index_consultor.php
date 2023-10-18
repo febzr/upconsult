@@ -26,6 +26,11 @@ if (isset($_GET['prox'])) {
 $db = "SELECT * FROM solicitacoes WHERE uniqueid NOT IN (SELECT idsolicitacao FROM dislike WHERE idconsultor = $cnpj) ORDER BY RAND() LIMIT 1;";
 $result = mysqli_fetch_array(mysqli_query($conn, $db));
 
+if ($result == NULL) {
+    header('Location: tela_erro_consultor.php');
+    exit();
+}
+
 $tipo = $result['tipo'];
 $descricao = $result['descricao'];
 $data = $result['sugdata'];
