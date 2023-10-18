@@ -1,63 +1,3 @@
-<?php
-include 'php/db.php';
-session_start();
-global $_SESSION;
-$idsol = 1;
-$nome = $_SESSION['nome'];
-$cnpj = $_SESSION['cnpj'];
-try { $idsol = $_SESSION['idsol']; }
-catch (Exception $e) { $_SESSION['idsol'] = 1; }
-
-if (isset($_POST['aceitar'])) {
-    $_SESSION['idsolicitacao'] = $result['idsolicitacao'];
-    $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
-    mysqli_query($conn, $db);
-    header('Location: upconsult_index_agendamento_consultor.php');
-    exit();
-}
-
-if (isset($_GET['prox'])) {
-    $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
-    mysqli_query($conn, $db);
-    header('Location: upconsult_index_consultor.php');
-    exit();
-}
-
-$db = "SELECT * FROM solicitacoes WHERE uniqueid NOT IN (SELECT idsolicitacao FROM dislike WHERE idconsultor = $cnpj) ORDER BY RAND() LIMIT 1;";
-$result = mysqli_fetch_array(mysqli_query($conn, $db));
-
-$tipo = $result['tipo'];
-$descricao = $result['descricao'];
-$data = $result['sugdata'];
-$hora = $result['sughora'];
-$area = $result['area'];
-$idsol = $result['uniqueid'];
-$nomesol = $result['nomesol'];
-$_SESSION['idsol'] = $idsol;
-
-if ($area == 'vendas') {
-    $area = "Vendas";
-}
-if ($area == 'gestao') {
-    $area = "Gestão";
-}
-if ($area == 'marketing') {
-    $area = "Marketing";
-}
-if ($area == 'financas') {
-    $area = "Finanças";
-}
-if ($area == 'rh') {
-    $area = "Recursos Humanos";
-}
-if ($area == 'ti') {
-    $area = "Tecnologia da Informação";
-}
-if ($area == 'sustentabilidade') {
-    $area = "Sustentabilidade";
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -87,10 +27,19 @@ if ($area == 'sustentabilidade') {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_style.css">
+    <link rel="stylesheet" href="upconsult_index_pagamento_consultor_style.css">
+    <script src="https://sdk.mercadopago.com/js/v2">
+    </script>
+
 </head>
 
 <body>
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <script>
+        const mp = new MercadoPago("YOUR_PUBLIC_KEY");
+    </script>
 
     <!-- Menu principal -->
     <header class="menu-principal">
@@ -134,55 +83,95 @@ if ($area == 'sustentabilidade') {
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
             
-            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_carrossel.php'">
-                <img src="./Resources/Plataforma/zap.png" alt="">
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_solicitacao.php'">
+                <img src="./Resources/Plataforma/empresa-realizar-solicitacao.png" alt="">
             </button>
         </section>
 
     </main>
 
-    <!-- Parte principal do pagamento consultor -->
-    
-  <form id="form-checkout" action="/process_payment" method="post">
-    <div>
-      <div>
-        <label for="payerFirstName">Nome</label>
-        <input id="form-checkout__payerFirstName" name="payerFirstName" type="text">
-      </div>
-      <div>
-        <label for="payerLastName">Sobrenome</label>
-        <input id="form-checkout__payerLastName" name="payerLastName" type="text">
-      </div>
-      <div>
-        <label for="email">E-mail</label>
-        <input id="form-checkout__email" name="email" type="text">
-      </div>
-      <div>
-        <label for="identificationType">Tipo de documento</label>
-        <select id="form-checkout__identificationType" name="identificationType" type="text"></select>
-      </div>
-      <div>
-        <label for="identificationNumber">Número do documento</label>
-        <input id="form-checkout__identificationNumber" name="identificationNumber" type="text">
-      </div>
-    </div>
 
-    <div>
-      <div>
-        <input type="hidden" name="transactionAmount" id="transactionAmount" value="100">
-        <input type="hidden" name="description" id="description" value="Nome do Produto">
-        <br>
-        <button type="submit">Pagar</button>
-      </div>
-    </div>
-  </form>
+  <div id="paymentBrick_container">
+  </div>
+  <script>
+    const mp = new MercadoPago('YOUR_PUBLIC_KEY', {
+    locale: 'pt-BR'
+  });
+  const bricksBuilder = mp.bricks();
+    const renderPaymentBrick = async (bricksBuilder) => {
+      const settings = {
+        initialization: {
+          /*
+            "amount" é a quantia total a pagar por todos os meios de pagamento com exceção da Conta Mercado Pago e Parcelas sem cartão de crédito, que têm seus valores de processamento determinados no backend através do "preferenceId"
+          */
+          amount: 10000,
+          preferenceId: "<PREFERENCE_ID>",
+          payer: {
+            firstName: "",
+            lastName: "",
+            email: "",
+          },
+        },
+        customization: {
+          visual: {
+            style: {
+              theme: "default",
+            },
+          },
+          paymentMethods: {
+            creditCard: "all",
+						debitCard: "all",
+						ticket: "all",
+						bankTransfer: "all",
+						atm: "all",
+						onboarding_credits: "all",
+						wallet_purchase: "all",
+            maxInstallments: 12
+          },
+        },
+        callbacks: {
+          onReady: () => {
+            /*
+             Callback chamado quando o Brick está pronto.
+             Aqui, você pode ocultar seu site, por exemplo.
+            */
+          },
+          onSubmit: ({ selectedPaymentMethod, formData }) => {
+            // callback chamado quando há click no botão de envio de dados
+            return new Promise((resolve, reject) => {
+              fetch("/process_payment", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+              })
+                .then((response) => response.json())
+                .then((response) => {
+                  // receber o resultado do pagamento
+                  resolve();
+                })
+                .catch((error) => {
+                  // manejar a resposta de erro ao tentar criar um pagamento
+                  reject();
+                });
+            });
+          },
+          onError: (error) => {
+            // callback chamado para todos os casos de erro do Brick
+            console.error(error);
+          },
+        },
+      };
+      window.paymentBrickController = await bricksBuilder.create(
+        "payment",
+        "paymentBrick_container",
+        settings
+      );
+    };
+    renderPaymentBrick(bricksBuilder);
+</script>
 
-
-  <a href="https://www.mercadopago.com.br/payments/123456789/ticket?caller_id=123456&hash=123e4567-e89b-12d3-a456-426655440000" target="_blank">Pagar com Pix</a>
-  
-    <img src={`data:image/jpeg;base64,${qr_code_base64}`/>  
-    <label for="copiar">Copiar Hash:</label>
-    <input type="text" id="copiar"  value={qr_code}/>
 </body>
 
 </html>
