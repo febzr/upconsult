@@ -72,6 +72,7 @@ margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #info-principais-foto-consultor{
@@ -91,6 +92,7 @@ margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .info-principais-criar-feed-consultor {
@@ -101,6 +103,7 @@ margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos do carrossel */
@@ -115,6 +118,7 @@ margin: 20px;
     position: absolute;
     left: 435px;
     top:300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .label-nomeDoConsultor{
