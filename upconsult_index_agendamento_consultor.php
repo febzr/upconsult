@@ -77,7 +77,6 @@ $hora = $result['sughora'];
     <div class="agenda">
         <h1>Minha Agenda</h1>
         <ul class="agendamentos">
-                    
             <li class="nomeDaEmpresa" id="nomeDaEmpresa">
                 <p class="label-nomeDaEmpresa">Empresa:</p>
                 <p class="nome-solicitacao"><?php echo $nomesol;?></p>
