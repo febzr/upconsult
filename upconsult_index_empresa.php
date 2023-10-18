@@ -129,7 +129,7 @@ if (isset($_GET['prox'])) {
     </header>
 
 
-    <!-- Parte principal do consultor -->
+    <!-- Parte principal da Empresa -->
     <main class="principal-consultor">
         <section class="info-principais">
             <div class="info-principais-card">
@@ -154,7 +154,7 @@ if (isset($_GET['prox'])) {
 
     </main>
 
-    <!-- Parte do Match consultor -->
+    <!-- Parte do Match Empresa -->
     <main class="carousel-container">
         <div class="carousel">
             <ul class="carousel-list">
