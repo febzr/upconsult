@@ -18,7 +18,7 @@ class MercadoPagoConfig
     public static string $PRODUCT_ID = "BC32A7RU643001OI3940";
 
     /** @var string access token */
-    private static string $access_token = "";
+    private static string $access_token = "TEST-4347360308719648-101722-235750956ec06e726a73669e199d21d6-553546048";
 
     /** @var string integrator id */
     private static string $integrator_id = "";
