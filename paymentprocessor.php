@@ -1,35 +1,36 @@
 <?php
-        namespace MercadoPago;
-        include 'vendor/mercadopago/dx-php/src/MercadoPago/MercadoPagoConfig.php';
-        include 'vendor/mercadopago/dx-php/src/MercadoPago/Resources/Payment.php';
-        require_once 'vendor/autoload.php';
-        use MercadoPago\MercadoPagoConfig;
-        use MercadoPago\Resources\Payment;
+    // Step 1: Require the library from your Composer vendor folder
+    require_once 'vendor/autoload.php';
 
-        MercadoPagoConfig::setAccessToken("ENV_ACCESS_TOKEN");
+    use MercadoPago\Client\Payment\PaymentClient;
+    use MercadoPago\Exceptions\MPApiException;
+    use MercadoPago\MercadoPagoConfig;
 
-        $payment = new Payment();
-        $payment->transaction_amount = 100;
-        $payment->description = "Título do produto";
-        $payment->payment_method_id = "pix";
-        $payment->payer = array(
-            "email" => "test@test.com",
-            "first_name" => "Test",
-            "last_name" => "User",
-            "identification" => array(
-                "type" => "CPF",
-                "number" => "19119119100"
-            ),
-            "address"=>  array(
-                "zip_code" => "06233200",
-                "street_name" => "Av. das Nações Unidas",
-                "street_number" => "3003",
-                "neighborhood" => "Bonfim",
-                "city" => "Osasco",
-                "federal_unit" => "SP"
-            )
-          );
+    // Step 2: Set production or sandbox access token
+    MercadoPagoConfig::setAccessToken("TEST-4347360308719648-101722-235750956ec06e726a73669e199d21d6-553546048");
 
-        $payment->save();
+    // Step 3: Initialize the API client
+    $client = new PaymentClient();
 
-        ?>
+    try {
+
+        // Step 4: Create the request array
+        $request = [
+            "transaction_amount" => 50,
+            "payment_method_id" => "pix",
+            "payer" => [
+                "email" => "1@teste.com",
+            ]
+        ];
+
+        // Step 5: Make the request
+        $payment = $client->create($request);
+        echo $payment->id;
+
+    // Step 6: Handle exceptions
+    } catch (MPApiException $e) {
+        echo "Status code: " . $e->getApiResponse()->getStatusCode() . "\n";
+        echo "Content: " . $e->getApiResponse()->getContent() . "\n";
+    } catch (\Exception $e) {
+        echo $e->getMessage();
+    }
