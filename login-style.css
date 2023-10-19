@@ -9,7 +9,6 @@ body {
     left: 100px;
     position: absolute;
     top: 80px;
-
 }
 
 .escuro-login ul {
@@ -20,11 +19,6 @@ body {
     top: 45px;
 }
 
-.i-login {
-    position: absolute;
-    left: 100px;
-}
-
 section h1 {
     color: #121276;
     font-weight: bold;
@@ -32,6 +26,9 @@ section h1 {
     margin-right: 130px;
     margin-top: 100px;
     font-size: 30px;
+    position: absolute;
+    left: 600px;
+    top: 100px;
 }
 
 p {
@@ -40,23 +37,29 @@ p {
     text-align: right;
     margin-bottom: 20px;
     margin-right: 65px;
+    position: absolute;
+    left: 550px;
+    top: 250px;
 
 }
 
-.cad-login, a {
-    text-align: right;
-    margin-right: 70px;
-    font-size: 12px;
-    color: black;
-
+.cad-login {
+    position: absolute;
+    left: 620px;
+    top: 550px;
 }
 
-.esqc-passw, a {
-    text-align: right;
+.esqc-passw{
+    position: absolute;
+    left: 600px;
+    top: 570px;
+}
+
+a{
+    text-align: center;
     margin-right: 50px;
     font-size: 12px;
     color:black;
-
 }
 
 section {
@@ -67,7 +70,9 @@ section {
 
 form {
     text-align: right;
-
+    position: absolute;
+    left: 500px;
+    top: 300px;
 }
 
 label {
@@ -83,9 +88,7 @@ input {
     margin-bottom: 15px;
     color: black;
     margin: 10px;
-
 }
-
 
 #enviar {
     width: 200px;
@@ -100,4 +103,7 @@ input {
 .pag-login {
     text-align: center;
     margin-bottom: 50px;
+    position: absolute;
+    left: 580px;
+    top: 630px;
 }
