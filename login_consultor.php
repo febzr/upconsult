@@ -102,9 +102,6 @@ if (isset($_POST['enviar'])) {
         </div>
     </header>
     <main>
-        <section class="i-login">
-            <img src="Resources/Cadastro e Login images/login-image.png" alt="">
-        </section>
         <section>
             <h1>Login</h1>
             <p>Olá, insira seus dados cadastrados</p><br>
