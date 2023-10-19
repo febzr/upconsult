@@ -82,10 +82,19 @@ p {
     font-size: 13px;
 }
 
-input, button {
-    padding: 5px;
-}
-
 #eventos-lista {
     margin-top: 20px;
+}
+
+button {
+    background-color: #E5C73F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
