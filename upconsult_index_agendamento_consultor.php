@@ -89,7 +89,21 @@ $hora = $result['sughora'];
                 <p class="label-hora">Hora do atendimento:</p>
                 <p class="hora-solicitacao"><?php echo $hora;?></p>
                     </li>                 
+            <li class="meet" id="meet">
+                <p class="label-meet">Link do meet:</p>
+                <p class="meet-solicitacao"><?php echo $meet;?></p>
+                    </li>  
         </ul>
+
+        <button class="botao" id="botao">PAGAMENTO</button>
+
+      </div>
+
+    <script>
+        document.getElementById("botao").onclick = function() {
+            window.location.href = "https://mpago.la/1HHyr5i";
+        };
+    </script>
 
         <div id="eventos-lista"></div>
 
