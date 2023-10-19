@@ -44,3 +44,8 @@ function adicionarEvento(nomeEmpresa, dataAtendimento, horaAtendimento) {
   
   
   adicionarEvento(nomesol, data, hora);
+
+  const container = document.querySelector('.container')
+  container.addEventListener('animationend', () => {
+    container.classList.remove('active');
+  });
