@@ -96,9 +96,9 @@ $meet = "meet.google.com/aec-1fu-f1g";
                     </li>  
         </ul>
 
-        <button class="botao" id="botao">PAGAMENTO</button>
-
       </div>
+
+      <button class="botao" id="botao">PAGAMENTO</button>
 
     <script>
         document.getElementById("botao").onclick = function() {
