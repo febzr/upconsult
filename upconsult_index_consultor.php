@@ -153,11 +153,11 @@ if ($area == 'sustentabilidade') {
                     
                     <li class="nomeDaEmpresa" id="nomeDaEmpresa">
                         <p class="label-nomeDaEmpresa">Empresa:</p>
-                        <p class="nome-solicitacao"><?php echo $nomesol;?></p>
+                        <p class="nome-solicitacao"><?php echo $area;?></p>
                         </li>
                     <li class="tipo" id="tipo">
                         <p class="label-tipo">Área da solicitação:</p>
-                        <p class="tipo-solicitacao"><?php echo $area;?></p>
+                        <p class="tipo-solicitacao"><?php echo $nomesol;?></p>
                         </li>
                     <li class="subtipo" id="subtipo">
                         <p class="label-subtipo">Especificação da solicitação:</p>

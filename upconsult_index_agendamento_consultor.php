@@ -16,6 +16,7 @@ $result = mysqli_fetch_array(mysqli_query($conn, $db));
 $nomesol = $result['nomesol'];
 $data = $result['sugdata'];
 $hora = $result['sughora'];
+$meet = "meet.google.com/aec-1fu-f1g";
 ?>
 
 <!DOCTYPE html>
