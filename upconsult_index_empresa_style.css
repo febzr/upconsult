@@ -109,8 +109,8 @@ margin: 20px;
 /* Estilos do carrossel */
 
 .carousel-list {
-    border: 2px solid #D9D9D9;
-    border-radius: 8px;
+    border: 2px solid #121276;
+    border-radius: 15px;
     padding: 60px;
     height: 350px;
     width: 500px;  
@@ -118,7 +118,7 @@ margin: 20px;
     position: absolute;
     left: 435px;
     top:300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .label-nomeDoConsultor{
