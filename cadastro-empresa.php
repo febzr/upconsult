@@ -60,7 +60,7 @@ if (isset($_POST['enviar'])){
         Arquivos locais
     -->
 
-    <link rel="stylesheet" href="./cadastro-empresa.style.css">
+    <link rel="stylesheet" href="./css/cadastro-empresa.style.css">
     <script src="./script.js"></script>
 
 

@@ -60,7 +60,7 @@ catch (Exception $e) {
 if (isset($_GET['prox'])) {
     $db = "DELETE FROM sugconsultor WHERE uniqueid = $uniqueid;";
     mysqli_query($conn, $db);
-    header('Location: upconsult_index_empresa.php');
+    header('Location: index_empresa.php');
     exit();
 }
 
@@ -94,7 +94,7 @@ if (isset($_GET['prox'])) {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_style.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
@@ -141,7 +141,7 @@ if (isset($_GET['prox'])) {
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
             
-            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_solicitacao.php'">
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='solicitacao_empresa.php'">
                 <img src="./Resources/Plataforma/empresa-realizar-solicitacao.png" alt="">
             </button>
         </section>

@@ -27,13 +27,13 @@ if (isset($_POST['enviar-solicitacao'])) {
     if (empty($tipo) || empty($sugdata) || empty($sughora) || empty($area)) {
         $_POST['er_cad'] = "1"; //Erro de campos vazios
         echo "<script>alert('Preencha todos os campos!');</script>";
-        header("Refresh:1; url=upconsult_index_empresa.php");
+        header("Refresh:1; url=index_empresa.php");
         exit();
     }
 
     $db = "INSERT INTO solicitacoes (tipo, descricao, sugdata, sughora, nomesol, cnpjsol, area) VALUES ('$tipo', '$descricao', '$sugdata', '$sughora', '$nome', '$cnpj', '$area')";
     mysqli_query($conn, $db);
-    header("Location: upconsult_index_empresa.php");
+    header("Location: index_empresa.php");
     exit();
 }
 
@@ -67,7 +67,7 @@ if (isset($_POST['enviar-solicitacao'])) {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_solicitacao_style.css">
+    <link rel="stylesheet" href="./css/solicitacao_empresa.css">
 </head>
 
 <body>

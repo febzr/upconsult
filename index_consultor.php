@@ -12,14 +12,14 @@ if (isset($_POST['aceitar'])) {
     $_SESSION['idsolicitacao'] = $result['idsolicitacao'];
     $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
     mysqli_query($conn, $db);
-    header('Location: upconsult_index_agendamento_consultor.php');
+    header('Location: agendamento_consultor.php');
     exit();
 }
 
 if (isset($_GET['prox'])) {
     $db = "INSERT INTO dislike (idconsultor, idsolicitacao) VALUES ('$cnpj', '$idsol');";
     mysqli_query($conn, $db);
-    header('Location: upconsult_index_consultor.php');
+    header('Location: index_consultor.php');
     exit();
 }
 
@@ -92,7 +92,7 @@ if ($area == 'sustentabilidade') {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_style.css">
+    <link rel="stylesheet" href="./css/upconsult_index_style.css">
 </head>
 
 <body>
@@ -139,7 +139,7 @@ if ($area == 'sustentabilidade') {
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
             
-            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_carrossel.php'">
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href=''">
                 <img src="./Resources/Plataforma/zap.png" alt="">
             </button>
         </section>

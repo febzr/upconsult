@@ -30,7 +30,7 @@ $nome = $_SESSION['nome'];
         Arquivos locais
     -->
 
-    <link rel="stylesheet" href="./tela_erro_consultor_style.css">
+    <link rel="stylesheet" href="./css/tela_erro_consultor_style.css">
     <script src="./script.js"></script>
 
 

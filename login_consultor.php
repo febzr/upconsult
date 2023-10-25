@@ -27,7 +27,7 @@ if (isset($_POST['enviar'])) {
             $_SESSION['nome'] = $result['nome'];
             $_SESSION['cnpj'] = $cnpj;
             
-            header('Location: upconsult_index_consultor.php');
+            header('Location: index_consultor.php');
 
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
@@ -70,7 +70,7 @@ if (isset($_POST['enviar'])) {
         Arquivos locais
     -->
 
-    <link rel="stylesheet" href="./login-style.css">
+    <link rel="stylesheet" href="./css/login-style.css">
     <script src="./script.js"></script>
 
 

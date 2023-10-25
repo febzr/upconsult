@@ -86,7 +86,7 @@ if ($area == 'sustentabilidade') {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_match_empresa_style.css">
+    <link rel="stylesheet" href="./css/match_empresa.css">
 </head>
 
 <body>

@@ -18,7 +18,7 @@ if (isset($_POST['enviar-proposta-de-solução'])) {
     if (empty($descricaoSolucao) || empty($dataAtendimentoConsultor) || empty($horaAtendimentoConsultor)) {
         $_POST['trigger'] = "1"; //Erro de campos vazios
         echo "<script>alert('Preencha todos os campos!');</script>";
-        header("Refresh:1; url=upconsult_index_indicacao.php");
+        header("Refresh:1; url=index_indicacao.php");
         exit();
     }
 
@@ -26,7 +26,7 @@ if (isset($_POST['enviar-proposta-de-solução'])) {
     mysqli_query($conn, $sql);
     $_POST['trigger'] = "2"; //Solicitação enviada com sucesso
     echo "<script>alert('Proposta enviada com sucesso!');</script>";
-    header('Location: upconsult_index_consultor.php');
+    header('Location: index_consultor.php');
 }
 
 ?>
@@ -59,7 +59,7 @@ if (isset($_POST['enviar-proposta-de-solução'])) {
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_indicacao_style.css">
+    <link rel="stylesheet" href="./css/index_indicacao.css">
 </head>
 
 <body>

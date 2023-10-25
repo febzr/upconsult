@@ -16,7 +16,6 @@ $result = mysqli_fetch_array(mysqli_query($conn, $db));
 $nomesol = $result['nomesol'];
 $data = $result['sugdata'];
 $hora = $result['sughora'];
-$meet = "meet.google.com/aec-1fu-f1g";
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ $meet = "meet.google.com/aec-1fu-f1g";
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="./Resources/Plataforma/geral-logo-amarela.png">
-    <link rel="stylesheet" href="upconsult_index_agendamento_consultor_style.css">
+    <link rel="stylesheet" href="./css/agendamento_empresa.css">
 </head>
 
 <body>
@@ -79,7 +78,7 @@ $meet = "meet.google.com/aec-1fu-f1g";
         <h1>Minha Agenda</h1>
         <ul class="agendamentos">
             <li class="nomeDaEmpresa" id="nomeDaEmpresa">
-                <p class="label-nomeDaEmpresa">Empresa:</p>
+                <p class="label-nomeDaEmpresa">Consultor:</p>
                 <p class="nome-solicitacao"><?php echo $nomesol;?></p>
                     </li>
             <li class="data" id="data">
@@ -89,16 +88,17 @@ $meet = "meet.google.com/aec-1fu-f1g";
             <li class="hora" id="hora">
                 <p class="label-hora">Hora do atendimento:</p>
                 <p class="hora-solicitacao"><?php echo $hora;?></p>
-                    </li>                 
+                    </li>    
             <li class="meet" id="meet">
                 <p class="label-meet">Link do meet:</p>
                 <p class="meet-solicitacao"><?php echo $meet;?></p>
                     </li>  
         </ul>
 
+        <button class="botao" id="botao">PAGAMENTO</button>
+
       </div>
 
-      <button class="botao" id="botao">PAGAMENTO</button>
 
     <script>
         document.getElementById("botao").onclick = function() {
@@ -106,9 +106,8 @@ $meet = "meet.google.com/aec-1fu-f1g";
         };
     </script>
 
-        <div id="eventos-lista"></div>
+      <div id="eventos-lista"></div>
 
-    </div>
     <script src="agendamento.js"></script>
 
         

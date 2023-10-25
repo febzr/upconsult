@@ -30,7 +30,7 @@ $nome = $_SESSION['nome'];
         Arquivos locais
     -->
 
-    <link rel="stylesheet" href="./tela_erro_empresa_style.css">
+    <link rel="stylesheet" href="./css/tela_erro_empresa_style.css">
     <script src="./script.js"></script>
 
 
@@ -82,7 +82,7 @@ $nome = $_SESSION['nome'];
                 <img src="./Resources/Plataforma/geral-atendimento.png" alt="">
             </div>
             
-            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='upconsult_index_solicitacao.php'">
+            <button class="info-principais-criar-feed-consultor" type="button" onclick="window.location.href='solicitacao_empresa.php'">
                 <img src="./Resources/Plataforma/empresa-realizar-solicitacao.png" alt="">
             </button>
         </section>

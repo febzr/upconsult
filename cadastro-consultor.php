@@ -63,7 +63,7 @@ if (isset($_POST['enviar'])){
     -->
 
     
-    <link rel="stylesheet" href="./cadastro-consultor.style.css">
+    <link rel="stylesheet" href="./css/cadastro-consultor.css">
     <script src="./script.js"></script>
 
 

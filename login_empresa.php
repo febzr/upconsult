@@ -27,7 +27,7 @@ if (isset($_POST['enviar'])) {
             $result = mysqli_fetch_array(mysqli_query($conn, $db));
             $_SESSION['nome'] = $result['nome'];
 
-            header('Location: upconsult_index_empresa.php');
+            header('Location: index_empresa.php');
         } else {
             $_POST['er_cad'] = "1"; //Erro de senha incorreta
             echo "<script>alert('Senha incorreta!');</script>";
@@ -70,7 +70,7 @@ if (isset($_POST['enviar'])) {
         Arquivos locais
     -->
 
-    <link rel="stylesheet" href="./login-style.css">
+    <link rel="stylesheet" href="./css/login-style.css">
     <script src="./script.js"></script>
 
 
